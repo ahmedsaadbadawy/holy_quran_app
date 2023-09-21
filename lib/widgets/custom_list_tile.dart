@@ -17,8 +17,10 @@ class CustomListTile extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => Detailview()));
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => DetailView(
+                  surah: surahModel,
+                )));
       },
       child: ListTile(
         leading: Stack(
@@ -39,10 +41,35 @@ class CustomListTile extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        subtitle: Text(
-          '${surahModel.revelation}  ${surahModel.numberOfVerses} verses',
-          style: GoogleFonts.poppins(
-              color: text, fontSize: 14, fontWeight: FontWeight.w500),
+        subtitle: Row(
+          children: [
+            Text(
+              surahModel.revelation!,
+              style: GoogleFonts.poppins(
+                color: text,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            Container(
+              width: 4,
+              height: 4,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(2), color: text),
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            Text(
+              "${surahModel.numberOfVerses} Ayat",
+              style: GoogleFonts.poppins(
+                color: text,
+                fontWeight: FontWeight.w500,
+              ),
+            )
+          ],
         ),
         trailing: Text(
           '${surahModel.name}',
