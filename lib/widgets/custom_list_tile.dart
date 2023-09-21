@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/models/surah_model.dart';
+import 'package:quran_app/views/detail_view.dart';
 
 import '../constants.dart';
 
@@ -15,7 +16,10 @@ class CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => Detailview()));
+      },
       child: ListTile(
         leading: Stack(
           alignment: Alignment.center,

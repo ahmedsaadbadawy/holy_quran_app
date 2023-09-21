@@ -18,9 +18,8 @@ class SurahModel {
       number: jsonData['number'],
       numberOfVerses: jsonData['numberOfVerses'],
       name: jsonData['name']['short'],
-      enName: jsonData['name']['transliteration']['id'], 
+      enName: jsonData['name']['transliteration']['id'],
       revelation: jsonData['revelation']['en'],
     );
   }
 }
-
