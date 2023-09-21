@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/constants.dart';
 import '../widgets/bottom_navigation_bar.dart';
+import '../widgets/greetings.dart';
 
 class MyHomeView extends StatelessWidget {
   const MyHomeView({super.key});
@@ -10,9 +11,26 @@ class MyHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: background,
-        appBar: AppBar(
-          backgroundColor: background,
+      backgroundColor: background,
+      appBar: customAppBar(),
+      bottomNavigationBar: const CustomBottomNavigationBar(),
+      body: DefaultTabController(
+        length: 4,
+        child: NestedScrollView(
+          headerSliverBuilder: (context, innerBoxIsScrolled) => [
+            const SliverToBoxAdapter(
+              child: Greetings(),
+            )
+          ],
+          body: const Center(),
+        ),
+      ),
+    );
+  }
+
+  AppBar customAppBar() {
+    return AppBar(
+      backgroundColor: background,
       elevation: 0,
       title: Row(
         children: [
@@ -33,14 +51,8 @@ class MyHomeView extends StatelessWidget {
         ],
       ),
       automaticallyImplyLeading: false,
-        ),
-        bottomNavigationBar: const CustomBottomNavigationBar(),
-        body: DefaultTabController(
-          length: 4,
-          child: NestedScrollView(
-            headerSliverBuilder: (context, innerBoxIsScrolled) => [],
-            body: const Center(),
-          ),
-        ));
+    );
   }
 }
+
+
