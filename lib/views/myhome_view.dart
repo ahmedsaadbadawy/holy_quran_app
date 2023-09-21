@@ -16,14 +16,53 @@ class MyHomeView extends StatelessWidget {
       bottomNavigationBar: const CustomBottomNavigationBar(),
       body: DefaultTabController(
         length: 4,
-        child: NestedScrollView(
-          headerSliverBuilder: (context, innerBoxIsScrolled) => [
-            const SliverToBoxAdapter(
-              child: Greetings(),
-            )
-          ],
-          body: const Center(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: NestedScrollView(
+            headerSliverBuilder: (context, innerBoxIsScrolled) => [
+              const SliverToBoxAdapter(
+                child: Greetings(),
+              ),
+              SliverAppBar(
+                elevation: 0,
+                backgroundColor: background,
+                automaticallyImplyLeading: false,
+                shape: Border(
+                    bottom: BorderSide(
+                        width: 3,
+                        color: const Color(0xFFAAAAAA).withOpacity(.1))),
+                bottom: PreferredSize(
+                  preferredSize: const Size.fromHeight(0),
+                  child: customTabBar(),
+                ),
+              )
+            ],
+            body: const Center(),
+          ),
         ),
+      ),
+    );
+  }
+
+  TabBar customTabBar() {
+    return TabBar(
+      indicatorColor: primary,
+      unselectedLabelColor: text,
+      indicatorWeight: 3,
+      tabs: [
+        tabItem(label: 'Surah'),
+        tabItem(label: 'Para'),
+        tabItem(label: 'Page'),
+        tabItem(label: 'Hijb'),
+      ],
+    );
+  }
+
+  Tab tabItem({required String label}) {
+    return Tab(
+      child: Text(
+        label,
+        style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w600),
       ),
     );
   }
@@ -54,5 +93,3 @@ class MyHomeView extends StatelessWidget {
     );
   }
 }
-
-
