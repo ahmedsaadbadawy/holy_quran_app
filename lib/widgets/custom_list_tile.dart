@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quran_app/models/surah_model.dart';
 
 import '../constants.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({
     super.key,
-    required this.index,
+    required this.surahModel,
   });
-  final int index;
+  final SurahModel surahModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,13 +22,13 @@ class CustomListTile extends StatelessWidget {
           children: [
             SvgPicture.asset('assets/svgs/nomor-surah.svg'),
             Text(
-              '$index',
+              '${surahModel.number}',
               style: const TextStyle(color: Colors.white),
             ),
           ],
         ),
         title: Text(
-          'Al-Fatihah',
+          '${surahModel.enName}',
           style: GoogleFonts.poppins(
             color: Colors.white,
             fontSize: 14,
@@ -35,12 +36,12 @@ class CustomListTile extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          'MEKAH  7 verses',
+          '${surahModel.revelation}  ${surahModel.numberOfVerses} verses',
           style: GoogleFonts.poppins(
               color: text, fontSize: 14, fontWeight: FontWeight.w500),
         ),
         trailing: Text(
-          'الفاتحه',
+          '${surahModel.name}',
           style: GoogleFonts.amiri(
             color: primary,
             fontSize: 20,
