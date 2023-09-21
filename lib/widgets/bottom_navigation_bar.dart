@@ -29,8 +29,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
   BottomNavigationBarItem bottomBarItem(
       {required String icon, required String label}) {
     return BottomNavigationBarItem(
-      icon: SvgPicture.asset(icon, color: text),
-      activeIcon: SvgPicture.asset(icon, color: primary),
+      icon: SvgPicture.asset(icon),
+      activeIcon: SvgPicture.asset(icon),
       label: label,
     );
   }
