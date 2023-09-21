@@ -31,7 +31,7 @@ class SplashView extends StatelessWidget {
                 style: GoogleFonts.poppins(fontSize: 18, color: text),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 48),
+              const SizedBox(height: 30),
               Stack(
                 clipBehavior: Clip.none,
                 children: [
