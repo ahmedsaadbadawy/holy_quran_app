@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quran_app/cubits/audio_cubit/audio_cubit.dart';
 
 import '../constants.dart';
 import '../models/ayat_model.dart';
@@ -18,7 +20,10 @@ class AyatItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          CustomPlayAudio(ayat: ayat),
+          BlocProvider(
+            create: (context) => AudioCubit(),
+            child: CustomPlayAudio(ayat: ayat),
+          ),
           const SizedBox(
             height: 24,
           ),
@@ -45,4 +50,3 @@ class AyatItem extends StatelessWidget {
     );
   }
 }
-
