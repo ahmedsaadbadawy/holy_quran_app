@@ -21,9 +21,9 @@ class LastRead extends StatelessWidget {
               end: Alignment.bottomRight,
               stops: [0, .6, 1],
               colors: [
-                Color(0xFFDF98FA),
-                Color(0xFFB070FD),
-                Color(0xFF9055FF)
+                Color(0xFFB691FF),
+                Color(0xFF6918B4),
+                Color(0xFF36117E),
               ],
             ),
           ),
@@ -47,8 +47,7 @@ class LastRead extends StatelessWidget {
                   Text(
                     'Last Read',
                     style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500),
+                        color: Colors.white, fontWeight: FontWeight.w500),
                   ),
                 ],
               ),

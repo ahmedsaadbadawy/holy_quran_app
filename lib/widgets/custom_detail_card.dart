@@ -15,12 +15,12 @@ class CustomDetailCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Stack(children: [
         Container(
           height: 257,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(20),
               gradient: const LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
@@ -30,9 +30,9 @@ class CustomDetailCard extends StatelessWidget {
                     1
                   ],
                   colors: [
-                    Color(0xFFDF98FA),
-                    Color(0xFFB070FD),
-                    Color(0xFF9055FF)
+                    Color(0xFFB691FF),
+                    Color(0xFF6918B4),
+                    Color(0xFF36117E)
                   ])),
         ),
         Positioned(

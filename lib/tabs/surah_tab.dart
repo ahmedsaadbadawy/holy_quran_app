@@ -11,7 +11,7 @@ class SurahTab extends StatelessWidget {
       future: SurahService().getAllSurahs(),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         if (!snapshot.hasData) {
-          print('snapshot = ${snapshot.error}');
+          //print('snapshot = ${snapshot.error}');
           return Container();
         } else {
           return ListView.separated(

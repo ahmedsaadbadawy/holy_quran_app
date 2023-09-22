@@ -6,7 +6,7 @@ import '../models/ayat_model.dart';
 class AyatService {
   Future<List<AyatModel>> getAllAyat({required int surahNumber}) async {
     http.Response response = await http
-        .get(Uri.parse('https://api.quran.gading.dev/surah/${surahNumber}'));
+        .get(Uri.parse('https://api.quran.gading.dev/surah/$surahNumber'));
 
     Map<String, dynamic> jsonData = jsonDecode(response.body);
 
