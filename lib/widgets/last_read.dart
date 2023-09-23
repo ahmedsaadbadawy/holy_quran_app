@@ -2,13 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LastRead extends StatelessWidget {
+import '../constants.dart';
+
+class LastRead extends StatefulWidget {
   const LastRead({
     super.key,
   });
 
   @override
+  State<LastRead> createState() => _LastReadState();
+}
+
+class _LastReadState extends State<LastRead> {
+  String name = 'Al-Fatihah';
+  @override
   Widget build(BuildContext context) {
+    prefs.listen(() {
+      //name = prefs.read(kPrefSurahName);
+      setState(() {});
+    });
     return Stack(
       children: [
         Container(
@@ -53,7 +65,7 @@ class LastRead extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Text(
-                'Al-Fatihah',
+                prefs.read(kPrefSurahName) ?? 'Al-Fatihah',
                 style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 18,
@@ -62,7 +74,7 @@ class LastRead extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               Text(
-                'Ayat No: 1',
+                'Aya No: ${prefs.read(kPrefAyaNumber)}',
                 style: GoogleFonts.poppins(color: Colors.white),
               ),
             ],

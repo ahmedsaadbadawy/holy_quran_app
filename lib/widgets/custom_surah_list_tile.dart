@@ -6,8 +6,8 @@ import 'package:quran_app/views/detail_view.dart';
 
 import '../constants.dart';
 
-class CustomListTile extends StatelessWidget {
-  const CustomListTile({
+class CustomSurahListTile extends StatelessWidget {
+  const CustomSurahListTile({
     super.key,
     required this.surahModel,
   });
@@ -17,10 +17,15 @@ class CustomListTile extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
+        Navigator.of(context).push(
+          MaterialPageRoute(
             builder: (context) => DetailView(
-                  surah: surahModel,
-                )));
+              surah: surahModel,
+            ),
+          ),
+        );
+
+        prefs.write(kPrefSurahName, surahModel.enName);
       },
       child: ListTile(
         leading: Stack(

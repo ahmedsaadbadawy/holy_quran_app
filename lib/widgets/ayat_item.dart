@@ -17,35 +17,41 @@ class AyatItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          BlocProvider(
-            create: (context) => AudioCubit(),
-            child: CustomPlayAudio(ayat: ayat),
-          ),
-          const SizedBox(
-            height: 24,
-          ),
-          Text(
-            ayat.quran!,
-            style: GoogleFonts.amiri(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+      child: GestureDetector(
+        onHorizontalDragDown: (_) {
+          prefs.write(kPrefAyaNumber, ayat.numberinSurah);
+          print('${prefs.read(kPrefAyaNumber)}');
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            BlocProvider(
+              create: (context) => AudioCubit(),
+              child: CustomPlayAudio(ayat: ayat),
             ),
-            textAlign: TextAlign.right,
-          ),
-          const SizedBox(height: 16),
-          Text(
-            ayat.translation!,
-            style: GoogleFonts.poppins(
-              color: text,
-              fontSize: 16,
+            const SizedBox(
+              height: 24,
             ),
-            textAlign: TextAlign.left,
-          ),
-        ],
+            Text(
+              ayat.quran!,
+              style: GoogleFonts.amiri(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.right,
+            ),
+            const SizedBox(height: 16),
+            Text(
+              ayat.translation!,
+              style: GoogleFonts.poppins(
+                color: text,
+                fontSize: 16,
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ],
+        ),
       ),
     );
   }
