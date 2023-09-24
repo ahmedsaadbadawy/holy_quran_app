@@ -37,10 +37,11 @@ class DetailView extends StatelessWidget {
                 } else {
                   return ListView.builder(
                     itemBuilder: (BuildContext context, int index) {
-                      if (tapName == 'PageTap') {
+                      if (tapName == kPageTabName) {
                         return PageItem(ayat: snapshot.data[index]);
+                      } else {
+                        return AyatItem(ayat: snapshot.data[index]);
                       }
-                      return AyatItem(ayat: snapshot.data[index]);
                     },
                     itemCount: snapshot.data.length,
                   );

@@ -6,7 +6,7 @@ Color text = const Color(0xFFb691ff);
 Color orange = const Color(0xFFF9B091);
 Color primary = const Color(0xFF6918b4);
 Color gray = const Color(0xFF121931);
-//36117e
+Color font =  Colors.white;
 
 final prefs = GetStorage();
 
@@ -15,5 +15,6 @@ String kPrefSurahNumber = 'surahNumber';
 String kPrefAyaNumber = 'ayaNumber';
 String kPrefNumberOfAyat = 'NumberOfAyat';
 
+String kPageTabName = 'PageTap';
+
 int pageNum = 1;
-String pageText = '';

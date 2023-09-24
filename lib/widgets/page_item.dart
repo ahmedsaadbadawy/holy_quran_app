@@ -23,9 +23,10 @@ class PageItem extends StatelessWidget {
             child: GestureDetector(
               onHorizontalDragDown: (_) {
                 prefs.write(kPrefAyaNumber, ayat.numberinSurah);
+                prefs.write(kPrefNumberOfAyat, ayat.numberinQuran);
               },
               child: Text(
-                ayat.quran!,
+                ayat.quran!.trim(),
                 style: GoogleFonts.amiri(
                   color: Colors.white,
                   fontSize: 20,
@@ -58,6 +59,15 @@ class PageItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Divider(color: const Color(0xFF7B80AD).withOpacity(.3)),
+          Text(
+            'juz: ${ayat.juz!}             hizbQuarter: ${ayat.hizbQuarter!}           Page ${ayat.page!}',
+            style: GoogleFonts.amiri(
+              color: primary,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.end,
+          ),
           Stack(
             alignment: Alignment.centerRight,
             children: [
@@ -67,6 +77,7 @@ class PageItem extends StatelessWidget {
                 child: GestureDetector(
                   onHorizontalDragDown: (_) {
                     prefs.write(kPrefAyaNumber, ayat.numberinSurah);
+                    prefs.write(kPrefNumberOfAyat, ayat.numberinQuran);
                   },
                   child: Text(
                     ayat.quran!,

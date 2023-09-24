@@ -14,7 +14,6 @@ class LastRead extends StatefulWidget {
 }
 
 class _LastReadState extends State<LastRead> {
-  String name = 'Al-Fatihah';
   @override
   Widget build(BuildContext context) {
     prefs.listen(() {

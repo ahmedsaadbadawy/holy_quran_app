@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/constants.dart';
 import '../tabs/quran_tab.dart';
-import '../tabs/hijb_tab.dart';
 import '../tabs/page_tab.dart';
 import '../tabs/ayat_tab.dart';
 import '../widgets/bottom_navigation_bar.dart';
@@ -19,7 +18,7 @@ class MyHomeView extends StatelessWidget {
       appBar: customAppBar(),
       bottomNavigationBar: const CustomBottomNavigationBar(),
       body: DefaultTabController(
-        length: 4,
+        length: 3,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: NestedScrollView(
@@ -43,7 +42,7 @@ class MyHomeView extends StatelessWidget {
               )
             ],
             body: const TabBarView(
-              children: [AyathTab(), PageTab(), HijbTab(), QuranTab()],
+              children: [AyathTab(), PageTab(), QuranTab()],
             ),
           ),
         ),
@@ -59,7 +58,6 @@ class MyHomeView extends StatelessWidget {
       tabs: [
         tabItem(label: 'Ayat'),
         tabItem(label: 'Page'),
-        tabItem(label: 'Hijb'),
         tabItem(label: 'Quran'),
       ],
     );

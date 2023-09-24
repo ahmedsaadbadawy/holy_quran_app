@@ -21,7 +21,7 @@ class AyatItem extends StatelessWidget {
       child: GestureDetector(
         onHorizontalDragDown: (_) {
           prefs.write(kPrefAyaNumber, ayat.numberinSurah);
-          //print('${prefs.read(kPrefAyaNumber)}');
+          prefs.write(kPrefNumberOfAyat, ayat.numberinQuran);
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -51,7 +51,7 @@ class AyatItem extends StatelessWidget {
               ),
               textAlign: TextAlign.left,
             ),
-             Divider(color: const Color(0xFF7B80AD).withOpacity(.3)),
+            Divider(color: const Color(0xFF7B80AD).withOpacity(.3)),
           ],
         ),
       ),

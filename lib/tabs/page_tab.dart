@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/constants.dart';
 
 import '../services/surah_service.dart';
 import '../widgets/custom_surah_list_tile.dart';
@@ -17,7 +18,7 @@ class PageTab extends StatelessWidget {
         } else {
           return ListView.separated(
             itemBuilder: (BuildContext context, int index) {
-              return CustomSurahListTile(surahModel: snapshot.data[index],tapName: 'PageTap');
+              return CustomSurahListTile(surahModel: snapshot.data[index],tapName: kPageTabName);
             },
             itemCount: snapshot.data.length,
             separatorBuilder: (BuildContext context, int index) {

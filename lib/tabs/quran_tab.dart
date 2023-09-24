@@ -3,9 +3,14 @@ import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 import '../constants.dart';
 
-class QuranTab extends StatelessWidget {
+class QuranTab extends StatefulWidget {
   const QuranTab({super.key});
 
+  @override
+  State<QuranTab> createState() => _QuranTabState();
+}
+
+class _QuranTabState extends State<QuranTab> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -15,7 +20,7 @@ class QuranTab extends StatelessWidget {
             customWidths: CustomSliderWidths(
               progressBarWidth: 8,
               trackWidth: 10,
-              handlerSize: 5,
+              handlerSize: 6,
             ),
             customColors: CustomSliderColors(
               progressBarColor: primary,
@@ -26,10 +31,13 @@ class QuranTab extends StatelessWidget {
             spinnerMode: false,
             angleRange: 360,
             size: 225,
+            infoProperties: InfoProperties(
+              mainLabelStyle: TextStyle(color: background),
+            ),
           ),
           min: 0,
-          max: 100,
-          initialValue: 14.28 * 3,
+          max: 6236,
+          initialValue: prefs.read(kPrefNumberOfAyat) + 0.0,
         ),
       ),
     );

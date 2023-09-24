@@ -7,7 +7,7 @@ class AyatModel {
   final String? quran;
   final String? translation;
   final String? audio;
-  
+
   AyatModel({
     required this.numberinQuran,
     required this.numberinSurah,
@@ -29,7 +29,6 @@ class AyatModel {
       quran: jsonData['text']['arab'],
       translation: jsonData['translation']['en'],
       audio: jsonData['audio']['primary'],
-
     );
   }
 }
