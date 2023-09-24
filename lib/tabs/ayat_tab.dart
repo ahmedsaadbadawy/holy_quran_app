@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:quran_app/services/surah_service.dart';
 import '../widgets/custom_surah_list_tile.dart';
 
-class SurahTab extends StatelessWidget {
-  const SurahTab({super.key});
+class AyathTab extends StatelessWidget {
+  const AyathTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,8 @@ class SurahTab extends StatelessWidget {
         } else {
           return ListView.separated(
             itemBuilder: (BuildContext context, int index) {
-              return CustomSurahListTile(surahModel: snapshot.data[index]);
+              return CustomSurahListTile(
+                  surahModel: snapshot.data[index], tapName: 'SurahTap');
             },
             itemCount: snapshot.data.length,
             separatorBuilder: (BuildContext context, int index) {

@@ -3,15 +3,20 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/constants.dart';
 import 'package:quran_app/services/ayat_service.dart';
+import 'package:quran_app/widgets/page_item.dart';
 
 import '../models/surah_model.dart';
 import '../widgets/ayat_item.dart';
 import '../widgets/custom_detail_card.dart';
 
 class DetailView extends StatelessWidget {
-  const DetailView({super.key, required this.surah});
+  const DetailView({
+    super.key,
+    required this.surah,
+    required this.tapName,
+  });
   final SurahModel surah;
-
+  final String tapName;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,23 +35,20 @@ class DetailView extends StatelessWidget {
                   //print('snapshot = ${snapshot.error}');
                   return Container();
                 } else {
-                  return ListView.separated(
+                  return ListView.builder(
                     itemBuilder: (BuildContext context, int index) {
+                      if (tapName == 'PageTap') {
+                        return PageItem(ayat: snapshot.data[index]);
+                      }
                       return AyatItem(ayat: snapshot.data[index]);
                     },
                     itemCount: snapshot.data.length,
-                    separatorBuilder: (BuildContext context, int index) {
-                      return Divider(
-                          color: const Color(0xFF7B80AD).withOpacity(.3));
-                    },
                   );
                 }
               }),
         ));
   }
 }
-
-
 
 AppBar customAppBar(
     {required String surahName, required BuildContext context}) {

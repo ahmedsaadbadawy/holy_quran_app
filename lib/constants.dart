@@ -15,3 +15,5 @@ String kPrefSurahNumber = 'surahNumber';
 String kPrefAyaNumber = 'ayaNumber';
 String kPrefNumberOfAyat = 'NumberOfAyat';
 
+int pageNum = 1;
+String pageText = '';

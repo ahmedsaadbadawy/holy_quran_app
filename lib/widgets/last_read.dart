@@ -18,7 +18,6 @@ class _LastReadState extends State<LastRead> {
   @override
   Widget build(BuildContext context) {
     prefs.listen(() {
-      //name = prefs.read(kPrefSurahName);
       setState(() {});
     });
     return Stack(
@@ -74,7 +73,7 @@ class _LastReadState extends State<LastRead> {
               ),
               const SizedBox(height: 4),
               Text(
-                'Aya No: ${prefs.read(kPrefAyaNumber)}',
+                'Aya No: ${prefs.read(kPrefAyaNumber) ?? 1}',
                 style: GoogleFonts.poppins(color: Colors.white),
               ),
             ],

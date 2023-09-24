@@ -9,9 +9,10 @@ import '../constants.dart';
 class CustomSurahListTile extends StatelessWidget {
   const CustomSurahListTile({
     super.key,
-    required this.surahModel,
+    required this.surahModel, required this.tapName,
   });
   final SurahModel surahModel;
+  final String tapName;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,6 +22,7 @@ class CustomSurahListTile extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) => DetailView(
               surah: surahModel,
+              tapName: tapName,
             ),
           ),
         );

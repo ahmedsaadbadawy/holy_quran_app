@@ -13,6 +13,7 @@ class AyatItem extends StatelessWidget {
     required this.ayat,
   });
   final AyatModel ayat;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,7 +21,7 @@ class AyatItem extends StatelessWidget {
       child: GestureDetector(
         onHorizontalDragDown: (_) {
           prefs.write(kPrefAyaNumber, ayat.numberinSurah);
-          print('${prefs.read(kPrefAyaNumber)}');
+          //print('${prefs.read(kPrefAyaNumber)}');
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -50,6 +51,7 @@ class AyatItem extends StatelessWidget {
               ),
               textAlign: TextAlign.left,
             ),
+             Divider(color: const Color(0xFF7B80AD).withOpacity(.3)),
           ],
         ),
       ),

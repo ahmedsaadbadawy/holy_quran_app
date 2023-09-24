@@ -7,7 +7,7 @@ class HijbTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Text(
-        'Hijb Tab',
+        'Page Tab',
         style: TextStyle(color: Colors.white),
       ),
     );

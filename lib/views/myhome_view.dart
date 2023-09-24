@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/constants.dart';
+import '../tabs/quran_tab.dart';
 import '../tabs/hijb_tab.dart';
 import '../tabs/page_tab.dart';
-import '../tabs/para_tab.dart';
-import '../tabs/surah_tab.dart';
+import '../tabs/ayat_tab.dart';
 import '../widgets/bottom_navigation_bar.dart';
 import '../widgets/greetings.dart';
 
@@ -43,7 +43,7 @@ class MyHomeView extends StatelessWidget {
               )
             ],
             body: const TabBarView(
-              children: [SurahTab(), ParaTab(), PageTab(), HijbTab()],
+              children: [AyathTab(), PageTab(), HijbTab(), QuranTab()],
             ),
           ),
         ),
@@ -57,10 +57,10 @@ class MyHomeView extends StatelessWidget {
       unselectedLabelColor: text,
       indicatorWeight: 3,
       tabs: [
-        tabItem(label: 'Surah'),
-        tabItem(label: 'Para'),
+        tabItem(label: 'Ayat'),
         tabItem(label: 'Page'),
         tabItem(label: 'Hijb'),
+        tabItem(label: 'Quran'),
       ],
     );
   }
