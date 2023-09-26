@@ -5,7 +5,6 @@ import 'package:quran_app/constants.dart';
 import '../tabs/quran_tab.dart';
 import '../tabs/page_tab.dart';
 import '../tabs/ayat_tab.dart';
-import '../widgets/bottom_navigation_bar.dart';
 import '../widgets/greetings.dart';
 
 class MyHomeView extends StatelessWidget {
@@ -16,7 +15,6 @@ class MyHomeView extends StatelessWidget {
     return Scaffold(
       backgroundColor: background,
       appBar: customAppBar(),
-      bottomNavigationBar: const CustomBottomNavigationBar(),
       body: DefaultTabController(
         length: 3,
         child: Padding(

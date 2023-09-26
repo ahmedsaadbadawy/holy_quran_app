@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quran_app/views/myhome_view.dart';
+import 'package:quran_app/tabs/bottom_tab_bar.dart';
 import '../constants.dart';
 
 class SplashView extends StatelessWidget {
@@ -55,7 +55,7 @@ class SplashView extends StatelessWidget {
                       behavior: HitTestBehavior.opaque,
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const MyHomeView(),
+                          builder: (context) => const BottomTabBar(),
                         ));
                       },
                       child: Center(
