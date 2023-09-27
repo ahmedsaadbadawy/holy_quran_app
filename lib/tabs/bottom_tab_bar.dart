@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,12 +19,12 @@ class BottomTabBar extends StatefulWidget {
 
 class _BottomTabBarState extends State<BottomTabBar> {
   int _index = 0;
-  final screens = const [
-    MyHomeView(),
+  final screens =  [
+    const MyHomeView(),
     TipsView(),
-    PrayerView(),
-    DoaView(),
-    PraiseView(),
+    const PrayerView(),
+    const DoaView(),
+    const PraiseView(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -101,6 +102,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
       {required String icon, required String label}) {
     return BottomNavigationBarItem(
       icon: SvgPicture.asset(icon),
+      // ignore: deprecated_member_use
       activeIcon: SvgPicture.asset(icon, color: primary),
       label: label,
     );
