@@ -1,14 +1,14 @@
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
+import 'package:flutter/services.dart';
 import '../models/ayat_model.dart';
 
 class AyatService {
   Future<List<AyatModel>> getAllAyat({required int surahNumber}) async {
-    http.Response response = await http
-        .get(Uri.parse('https://api.quran.gading.dev/surah/$surahNumber'));
+    var response =
+        await rootBundle.loadString('assets/data/surah/$surahNumber.json');
 
-    Map<String, dynamic> jsonData = jsonDecode(response.body);
+    Map<String, dynamic> jsonData = jsonDecode(response);
 
     List<dynamic> ayat = jsonData['data']['verses'];
 

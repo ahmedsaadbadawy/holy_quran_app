@@ -56,9 +56,9 @@ class PraiseView extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 20, right: 80),
-                  child: Center(
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
                     child: Text(
                       'Important Islamic advice and guidance for every Muslim',
                       style: GoogleFonts.poppins(

@@ -56,20 +56,12 @@ class PrayerView extends StatelessWidget {
                     ),
                   ),
                 ),
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: SvgPicture.asset(
-                    'assets/svgs/pray-icon.svg',
-                    width: 125,
-                    height: 125,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 20, right: 80),
-                  child: Center(
+                Center(
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, top: 25, right: 20),
                     child: Text(
-                      'Important Islamic advice and guidance for every Muslim',
+                      ' وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَمَا تُقَدِّمُوا لِأَنْفُسِكُمْ مِنْ خَيْرٍ تَجِدُوهُ عِنْدَ اللَّهِ إِنَّ اللَّهَ بِمَا تَعْمَلُونَ بَصِيرٌ  ',
                       style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontWeight: FontWeight.w500,

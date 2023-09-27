@@ -56,18 +56,10 @@ class TipsView extends StatelessWidget {
                     ),
                   ),
                 ),
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: SvgPicture.asset(
-                    'assets/svgs/lamp-icon.svg',
-                    width: 125,
-                    height: 125,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 20, right: 80),
-                  child: Center(
+                Center(
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, top: 20, right: 20),
                     child: Text(
                       'Important Islamic advice and guidance for every Muslim',
                       style: GoogleFonts.poppins(

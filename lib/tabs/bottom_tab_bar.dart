@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quran_app/views/doa_view.dart';
 import 'package:quran_app/views/myhome_view.dart';
 import 'package:quran_app/views/praise_view.dart';
@@ -35,8 +36,8 @@ class _BottomTabBarState extends State<BottomTabBar> {
         selectedItemColor: primary,
         elevation: 0,
         backgroundColor: gray,
-        items: [
-          const BottomNavigationBarItem(
+        items: const [
+          BottomNavigationBarItem(
             icon: Icon(
               Icons.book,
               color: Colors.grey,
@@ -45,10 +46,38 @@ class _BottomTabBarState extends State<BottomTabBar> {
             activeIcon: Icon(Icons.auto_stories, size: 32),
             label: 'Quran',
           ),
-          bottomBarItem(icon: 'assets/svgs/lamp-icon.svg', label: 'Tips'),
-          bottomBarItem(icon: "assets/svgs/pray-icon.svg", label: "Prayer"),
-          bottomBarItem(icon: "assets/svgs/doa-icon.svg", label: "Doa"),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.lightbulb_outline,
+              color: Colors.grey,
+              size: 32,
+            ),
+            activeIcon: Icon(Icons.lightbulb, size: 32),
+            label: 'Tips',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              FontAwesomeIcons.personPraying,
+              color: Colors.white54,
+            ),
+            activeIcon: Icon(
+              FontAwesomeIcons.personPraying,
+              color: Color(0xFF6918b4),
+            ),
+            label: 'Prayer',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              FontAwesomeIcons.handsPraying,
+              color: Colors.white54,
+            ),
+            activeIcon: Icon(
+              FontAwesomeIcons.handsPraying,
+              color: Color(0xFF6918b4),
+            ),
+            label: 'Doa',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(
               Icons.touch_app_outlined,
               color: Colors.grey,
