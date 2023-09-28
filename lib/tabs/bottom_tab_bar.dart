@@ -1,14 +1,13 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quran_app/views/doa_view.dart';
 import 'package:quran_app/views/myhome_view.dart';
 import 'package:quran_app/views/praise_view.dart';
-import 'package:quran_app/views/prayer_view.dart';
 import 'package:quran_app/views/tips_view.dart';
 
 import '../constants.dart';
+import '../views/azkar_view.dart';
 
 class BottomTabBar extends StatefulWidget {
   const BottomTabBar({Key? key}) : super(key: key);
@@ -19,12 +18,12 @@ class BottomTabBar extends StatefulWidget {
 
 class _BottomTabBarState extends State<BottomTabBar> {
   int _index = 0;
-  final screens =  [
-    const MyHomeView(),
+  final screens = const [
+    MyHomeView(),
     TipsView(),
-    const PrayerView(),
-    const DoaView(),
-    const PraiseView(),
+    AzkarView(),
+    DoaView(),
+    PraiseView(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -65,7 +64,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
               FontAwesomeIcons.personPraying,
               color: Color(0xFF6918b4),
             ),
-            label: 'Prayer',
+            label: 'Azkar',
           ),
           BottomNavigationBarItem(
             icon: Icon(
