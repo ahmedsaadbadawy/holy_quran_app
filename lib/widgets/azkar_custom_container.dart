@@ -24,16 +24,6 @@ class _AzkarCustomContainerState extends State<AzkarCustomContainer> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 20),
-        Text(
-          widget.title,
-          style: GoogleFonts.amiri(
-            color: primary,
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),
-          textAlign: TextAlign.right,
-        ),
         ...widget.data.map(
           (zekr) {
             current = zekr['number'];
