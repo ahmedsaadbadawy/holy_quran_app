@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quran_app/widgets/praise_custom_container.dart';
 
 import '../constants.dart';
+import '../models/praise.dart';
 
 class PraiseView extends StatelessWidget {
   const PraiseView({super.key});
@@ -22,7 +24,7 @@ class PraiseView extends StatelessWidget {
             ),
             const SizedBox(width: 24),
             Text(
-              'Tips',
+              'Praise',
               style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
             ),
             const Spacer(),
@@ -34,75 +36,14 @@ class PraiseView extends StatelessWidget {
         ),
         automaticallyImplyLeading: false,
       ),
-      body: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) => [
-          SliverToBoxAdapter(
-            child: Stack(
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 131,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      stops: [0, .6, 1],
-                      colors: [
-                        Color(0xFFB691FF),
-                        Color(0xFF6918B4),
-                        Color(0xFF36117E),
-                      ],
-                    ),
-                  ),
-                ),
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
-                    child: Text(
-                      'Important Islamic advice and guidance for every Muslim',
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ],
-        body: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const SizedBox(
-                height: 24,
-              ),
-              Text(
-                'العربيه',
-                style: GoogleFonts.amiri(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.right,
-              ),
-              const SizedBox(height: 16),
-              Text(
-                'English',
-                style: GoogleFonts.poppins(
-                  color: text,
-                  fontSize: 16,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Divider(color: const Color(0xFF7B80AD).withOpacity(.3)),
-            ],
-          ),
-        ),
+      body: ListView.builder(
+        itemCount: praise.length,
+        itemBuilder: (context, index) {
+          return PraiseCustomContainer(
+            title: praise[index]['title'],
+            subTitle: praise[index]['subTitle'],
+          );
+        },
       ),
     );
   }
