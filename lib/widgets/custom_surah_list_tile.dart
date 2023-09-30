@@ -30,13 +30,15 @@ class CustomSurahListTile extends StatelessWidget {
         prefs.write(kPrefSurahName, surahModel.enName);
       },
       child: ListTile(
+        horizontalTitleGap: 10,
+        minLeadingWidth: 10,
         leading: Stack(
           alignment: Alignment.center,
           children: [
             Image.asset(
               'assets/svgs/hexagon.png',
-              height: 45,
-              width: 45,
+              height: MediaQuery.of(context).size.width / 10,
+              width: MediaQuery.of(context).size.width / 10,
               color: primary,
             ),
             Text(
@@ -53,35 +55,39 @@ class CustomSurahListTile extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        subtitle: Row(
-          children: [
-            Text(
-              surahModel.revelation!,
-              style: GoogleFonts.poppins(
-                color: text,
-                fontWeight: FontWeight.w500,
+        subtitle: SafeArea(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                surahModel.revelation!,
+                style: GoogleFonts.poppins(
+                  color: text,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 12,
+                ),
               ),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Container(
-              width: 4,
-              height: 4,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(2), color: text),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Text(
-              "${surahModel.numberOfVerses} Ayat",
-              style: GoogleFonts.poppins(
-                color: text,
-                fontWeight: FontWeight.w500,
+              const SizedBox(
+                width: 4,
               ),
-            )
-          ],
+              Container(
+                width: 4,
+                height: 4,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(2), color: text),
+              ),
+              const SizedBox(
+                width: 4,
+              ),
+              Text(
+                "${surahModel.numberOfVerses} Ayat",
+                style: GoogleFonts.poppins(
+                  color: text,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
+          ),
         ),
         trailing: Text(
           '${surahModel.name}',

@@ -18,7 +18,8 @@ class CustomDetailCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Stack(children: [
         Container(
-          height: 257,
+         
+          height: 300,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             gradient: LinearGradient(
@@ -30,16 +31,18 @@ class CustomDetailCard extends StatelessWidget {
           ),
         ),
         Positioned(
-            bottom: -10,
-            right: -60,
-            child: Opacity(
-                opacity: .2,
-                child: Image.asset(
-                  'assets/svgs/muslim.png',
-                  width: 324 - 55,
-                ))),
+          bottom: 10,
+          right: -60,
+          child: Opacity(
+            opacity: .2,
+            child: Image.asset(
+              'assets/svgs/muslim.png',
+              width: 324 - 55,
+            ),
+          ),
+        ),
         Container(
-          width: double.infinity,
+          width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.all(28),
           child: Column(
             children: [
@@ -99,6 +102,7 @@ class CustomDetailCard extends StatelessWidget {
               ),
               Image.asset(
                 'assets/svgs/bismillah.png',
+                fit: BoxFit.fill,
                 width: 200,
                 height: 80,
                 color: Colors.white,

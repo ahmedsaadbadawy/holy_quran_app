@@ -23,7 +23,10 @@ class AzkarView extends StatelessWidget {
             const SizedBox(width: 24),
             Text(
               'Azkar',
-              style: GoogleFonts.poppins(fontWeight: FontWeight.bold,color: font,),
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.bold,
+                color: font,
+              ),
             ),
             const Spacer(),
             IconButton(
@@ -41,10 +44,10 @@ class AzkarView extends StatelessWidget {
                     children: [
                       Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 131,
+                        height: 175,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          gradient:  LinearGradient(
+                          gradient: LinearGradient(
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                             stops: const [0, .6, 1],
@@ -55,7 +58,7 @@ class AzkarView extends StatelessWidget {
                       Center(
                         child: Padding(
                           padding: const EdgeInsets.only(
-                              left: 20, top: 25, right: 20),
+                              left: 20, top: 15, right: 20),
                           child: Text(
                             '  الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللَّهِ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ ',
                             style: GoogleFonts.poppins(

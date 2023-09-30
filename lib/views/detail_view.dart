@@ -58,7 +58,11 @@ AppBar customAppBar(
     elevation: 0,
     title: Row(children: [
       IconButton(
-        onPressed: (() => Navigator.of(context).pop()),
+        onPressed: (() {
+          print(
+              'width = ${MediaQuery.of(context).size.width} height = ${MediaQuery.of(context).size.height}');
+          Navigator.of(context).pop();
+        }),
         icon: const Icon(Icons.arrow_back, size: 30),
       ),
       const SizedBox(

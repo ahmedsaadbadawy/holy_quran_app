@@ -56,11 +56,10 @@ class PageItem extends StatelessWidget {
       pageNum = ayat.page!;
 
       return Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Divider(color: const Color(0xFF7B80AD).withOpacity(.3)),
           Text(
-            'juz: ${ayat.juz!}             hizbQuarter: ${ayat.hizbQuarter!}           Page ${ayat.page!}',
+            'juz: ${ayat.juz!}    hizbQuarter: ${ayat.hizbQuarter!}    Page ${ayat.page!}',
             style: GoogleFonts.amiri(
               color: primary,
               fontSize: 20,
@@ -68,43 +67,46 @@ class PageItem extends StatelessWidget {
             ),
             textAlign: TextAlign.end,
           ),
-          Stack(
+          Align(
             alignment: Alignment.centerRight,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 20, right: 50, top: 20, bottom: 20),
-                child: GestureDetector(
-                  onHorizontalDragDown: (_) {
-                    prefs.write(kPrefAyaNumber, ayat.numberinSurah);
-                    prefs.write(kPrefNumberOfAyat, ayat.numberinQuran);
-                  },
-                  child: Text(
-                    ayat.quran!,
-                    style: GoogleFonts.amiri(
-                      color: font,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+            child: Stack(
+              alignment: Alignment.centerRight,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 20, right: 50, top: 20, bottom: 20),
+                  child: GestureDetector(
+                    onHorizontalDragDown: (_) {
+                      prefs.write(kPrefAyaNumber, ayat.numberinSurah);
+                      prefs.write(kPrefNumberOfAyat, ayat.numberinQuran);
+                    },
+                    child: Text(
+                      ayat.quran!,
+                      style: GoogleFonts.amiri(
+                        color: font,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.right,
                     ),
-                    textAlign: TextAlign.right,
                   ),
                 ),
-              ),
-              Positioned(
-                right: 14,
-                child: Text(
-                  '${ayat.numberinSurah}',
-                  style: TextStyle(color: primary),
+                Positioned(
+                  right: 14,
+                  child: Text(
+                    '${ayat.numberinSurah}',
+                    style: TextStyle(color: primary),
+                  ),
                 ),
-              ),
-              Image.asset(
-                'assets/svgs/Scheherazade.svg.png',
-                width: 40,
-                height: 50,
-                fit: BoxFit.cover,
-                color: primary,
-              ),
-            ],
+                Image.asset(
+                  'assets/svgs/Scheherazade.svg.png',
+                  width: 40,
+                  height: 50,
+                  fit: BoxFit.cover,
+                  color: primary,
+                ),
+              ],
+            ),
           ),
         ],
       );

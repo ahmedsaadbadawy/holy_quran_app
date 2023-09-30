@@ -33,7 +33,6 @@ class AudioCubit extends Cubit<AudioState> {
       // ignore: avoid_print
       print('error = $e');
     }
-
     audioPlayer.onPlayerComplete.listen((_) {
       playing = false;
       emit(AudioComplete());

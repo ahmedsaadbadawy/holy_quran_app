@@ -19,11 +19,12 @@ class _LastReadState extends State<LastRead> {
     prefs.listen(() {
       setState(() {});
     });
+    
     return Stack(
       children: [
         Container(
           width: MediaQuery.of(context).size.width,
-          height: 131,
+          height: 140,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             gradient: LinearGradient(
