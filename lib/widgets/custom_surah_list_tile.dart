@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/models/surah_model.dart';
 import 'package:quran_app/views/detail_view.dart';
@@ -9,7 +8,8 @@ import '../constants.dart';
 class CustomSurahListTile extends StatelessWidget {
   const CustomSurahListTile({
     super.key,
-    required this.surahModel, required this.tapName,
+    required this.surahModel,
+    required this.tapName,
   });
   final SurahModel surahModel;
   final String tapName;
@@ -33,17 +33,22 @@ class CustomSurahListTile extends StatelessWidget {
         leading: Stack(
           alignment: Alignment.center,
           children: [
-            SvgPicture.asset('assets/svgs/nomor-surah.svg'),
+            Image.asset(
+              'assets/svgs/hexagon.png',
+              height: 45,
+              width: 45,
+              color: primary,
+            ),
             Text(
               '${surahModel.number}',
-              style: const TextStyle(color: Colors.white),
+              style: TextStyle(color: font),
             ),
           ],
         ),
         title: Text(
           '${surahModel.enName}',
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: font,
             fontSize: 14,
             fontWeight: FontWeight.w600,
           ),

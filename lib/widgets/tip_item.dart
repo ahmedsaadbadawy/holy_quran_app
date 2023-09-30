@@ -14,13 +14,10 @@ class TipItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const SizedBox(
-            height: 24,
-          ),
           Center(
             child: Text(
               title,
@@ -38,7 +35,7 @@ class TipItem extends StatelessWidget {
                 Text(
                   item,
                   style: GoogleFonts.poppins(
-                    color: Colors.white,
+                    color: font,
                     fontSize: 22,
                   ),
                   textAlign: TextAlign.right,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/widgets/azkar_custom_container.dart';
 
@@ -38,18 +37,26 @@ class AzkarDetailView extends StatelessWidget {
       title: Row(children: [
         IconButton(
             onPressed: (() => Navigator.of(context).pop()),
-            icon: SvgPicture.asset('assets/svgs/back-icon.svg')),
+            icon: const Icon(
+              Icons.arrow_back_rounded,
+              size: 30,
+            )),
         const SizedBox(
           width: 24,
         ),
         Text(
           title,
-          style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.bold),
+          style: GoogleFonts.poppins(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: font,
+          ),
         ),
         const Spacer(),
         IconButton(
-            onPressed: (() => {}),
-            icon: SvgPicture.asset('assets/svgs/search-icon.svg')),
+          onPressed: (() => {}),
+          icon: const Icon(Icons.search_outlined),
+        ),
       ]),
     );
   }

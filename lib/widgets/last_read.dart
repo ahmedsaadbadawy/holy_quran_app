@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../constants.dart';
@@ -26,22 +26,22 @@ class _LastReadState extends State<LastRead> {
           height: 131,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            gradient: const LinearGradient(
+            gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              stops: [0, .6, 1],
-              colors: [
-                Color(0xFFB691FF),
-                Color(0xFF6918B4),
-                Color(0xFF36117E),
-              ],
+              stops: const [0, .6, 1],
+              colors: linearGradiant,
             ),
           ),
         ),
         Positioned(
-          bottom: 0,
-          right: 0,
-          child: SvgPicture.asset('assets/svgs/quran.svg'),
+          bottom: -60,
+          right: -50,
+          child: Image.asset(
+            'assets/svgs/muslim.png',
+            width: 250,
+            height: 250,
+          ),
         ),
         Padding(
           padding: const EdgeInsets.all(20),
@@ -50,7 +50,11 @@ class _LastReadState extends State<LastRead> {
             children: [
               Row(
                 children: [
-                  SvgPicture.asset('assets/svgs/book.svg'),
+                  const Icon(
+                    FontAwesomeIcons.bookOpen,
+                    color: Colors.white,
+                    size: 19,
+                  ),
                   const SizedBox(
                     width: 8,
                   ),

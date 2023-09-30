@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/tabs/bottom_tab_bar.dart';
 import '../constants.dart';
@@ -42,9 +41,11 @@ class SplashView extends StatelessWidget {
                       height: 400,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: primary,
                       ),
-                      child: SvgPicture.asset('assets/svgs/splash.svg'),
+                      child: Image.asset(
+                        'assets/svgs/mosque.png',
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                   Positioned(

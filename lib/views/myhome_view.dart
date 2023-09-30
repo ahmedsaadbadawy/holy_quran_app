@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/constants.dart';
 import '../tabs/quran_tab.dart';
@@ -52,6 +51,7 @@ class MyHomeView extends StatelessWidget {
     return TabBar(
       indicatorColor: primary,
       unselectedLabelColor: text,
+      labelColor: font,
       indicatorWeight: 3,
       tabs: [
         tabItem(label: 'Ayat'),
@@ -78,17 +78,20 @@ class MyHomeView extends StatelessWidget {
         children: [
           IconButton(
             onPressed: () {},
-            icon: SvgPicture.asset('assets/svgs/menu-icon.svg'),
+            icon: const Icon(Icons.menu_outlined),
           ),
           const SizedBox(width: 24),
           Text(
             'Quran App',
-            style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.bold,
+              color: font,
+            ),
           ),
           const Spacer(),
           IconButton(
             onPressed: () {},
-            icon: SvgPicture.asset('assets/svgs/search-icon.svg'),
+            icon: const Icon(Icons.search_outlined),
           ),
         ],
       ),

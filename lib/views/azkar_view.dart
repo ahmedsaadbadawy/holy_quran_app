@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants.dart';
 import '../models/azkar.dart';
@@ -19,17 +18,17 @@ class AzkarView extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {},
-              icon: SvgPicture.asset('assets/svgs/menu-icon.svg'),
+              icon: const Icon(Icons.menu_outlined),
             ),
             const SizedBox(width: 24),
             Text(
               'Azkar',
-              style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+              style: GoogleFonts.poppins(fontWeight: FontWeight.bold,color: font,),
             ),
             const Spacer(),
             IconButton(
               onPressed: () {},
-              icon: SvgPicture.asset('assets/svgs/search-icon.svg'),
+              icon: const Icon(Icons.search_outlined),
             ),
           ],
         ),
@@ -45,15 +44,11 @@ class AzkarView extends StatelessWidget {
                         height: 131,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          gradient: const LinearGradient(
+                          gradient:  LinearGradient(
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
-                            stops: [0, .6, 1],
-                            colors: [
-                              Color(0xFFB691FF),
-                              Color(0xFF6918B4),
-                              Color(0xFF36117E),
-                            ],
+                            stops: const [0, .6, 1],
+                            colors: linearGradiant,
                           ),
                         ),
                       ),
@@ -77,18 +72,20 @@ class AzkarView extends StatelessWidget {
                 ),
               ],
           body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               AzkarInkWell(
                 context: context,
                 title: 'اذكار المساء',
                 number: 1,
               ),
+              Divider(color: const Color(0xFF7B80AD).withOpacity(.3)),
               AzkarInkWell(
                 context: context,
                 title: 'اذكار الصباح',
                 number: 2,
               ),
+              Divider(color: const Color(0xFF7B80AD).withOpacity(.3)),
               AzkarInkWell(
                 context: context,
                 title: 'اذكار الاستيقاظ من النوم',

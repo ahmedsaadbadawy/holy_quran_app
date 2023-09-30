@@ -32,15 +32,11 @@ class _AzkarCustomContainerState extends State<AzkarCustomContainer> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  gradient: const LinearGradient(
+                  gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    stops: [0, .6, 1],
-                    colors: [
-                      Color(0xFFB691FF),
-                      Color(0xFF6918B4),
-                      Color(0xFF36117E),
-                    ],
+                    stops: const [0, .6, 1],
+                    colors: linearGradiant,
                   ),
                 ),
                 child: Padding(
@@ -61,7 +57,7 @@ class _AzkarCustomContainerState extends State<AzkarCustomContainer> {
                       Text(
                         zekr['body'],
                         style: GoogleFonts.amiri(
-                          color: Colors.white,
+                          color: font,
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
@@ -81,7 +77,7 @@ class _AzkarCustomContainerState extends State<AzkarCustomContainer> {
                       Text(
                         zekr['number'].toString(),
                         style: GoogleFonts.amiri(
-                          color: Colors.white,
+                          color: font,
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),

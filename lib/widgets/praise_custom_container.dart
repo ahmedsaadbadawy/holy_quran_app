@@ -24,20 +24,17 @@ class _PraiseCustomContainerState extends State<PraiseCustomContainer> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
-          padding: const EdgeInsets.all(20),
+          padding:
+              const EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 20),
           child: Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              gradient: const LinearGradient(
+              gradient:  LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                stops: [0, .6, 1],
-                colors: [
-                  Color(0xFFB691FF),
-                  Color(0xFF6918B4),
-                  Color(0xFF36117E),
-                ],
+                stops: const [0, .6, 1],
+                colors: linearGradiant,
               ),
             ),
             child: Padding(
@@ -57,8 +54,8 @@ class _PraiseCustomContainerState extends State<PraiseCustomContainer> {
                   Text(
                     widget.subTitle,
                     style: GoogleFonts.amiri(
-                      color: Colors.white,
-                      fontSize: 16,
+                      color: font,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.right,

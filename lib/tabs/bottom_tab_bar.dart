@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quran_app/views/doa_view.dart';
 import 'package:quran_app/views/myhome_view.dart';
@@ -36,8 +35,8 @@ class _BottomTabBarState extends State<BottomTabBar> {
         selectedItemColor: primary,
         elevation: 0,
         backgroundColor: gray,
-        items: const [
-          BottomNavigationBarItem(
+        items: [
+          const BottomNavigationBarItem(
             icon: Icon(
               Icons.book,
               color: Colors.grey,
@@ -46,7 +45,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
             activeIcon: Icon(Icons.auto_stories, size: 32),
             label: 'Quran',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(
               Icons.lightbulb_outline,
               color: Colors.grey,
@@ -56,28 +55,28 @@ class _BottomTabBarState extends State<BottomTabBar> {
             label: 'Tips',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
+            icon: const Icon(
               FontAwesomeIcons.personPraying,
               color: Colors.white54,
             ),
             activeIcon: Icon(
               FontAwesomeIcons.personPraying,
-              color: Color(0xFF6918b4),
+              color: primary,
             ),
             label: 'Azkar',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
+            icon: const Icon(
               FontAwesomeIcons.handsPraying,
               color: Colors.white54,
             ),
             activeIcon: Icon(
               FontAwesomeIcons.handsPraying,
-              color: Color(0xFF6918b4),
+              color: primary,
             ),
             label: 'Doa',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(
               Icons.touch_app_outlined,
               color: Colors.grey,
@@ -94,16 +93,6 @@ class _BottomTabBarState extends State<BottomTabBar> {
           });
         },
       ),
-    );
-  }
-
-  BottomNavigationBarItem bottomBarItem(
-      {required String icon, required String label}) {
-    return BottomNavigationBarItem(
-      icon: SvgPicture.asset(icon),
-      // ignore: deprecated_member_use
-      activeIcon: SvgPicture.asset(icon, color: primary),
-      label: label,
     );
   }
 }

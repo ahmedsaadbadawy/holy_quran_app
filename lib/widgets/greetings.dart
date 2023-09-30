@@ -17,20 +17,30 @@ class Greetings extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(height: 4),
+
           Text(
             'Assalamualaikum',
             style: GoogleFonts.poppins(
-                color: primary, fontSize: 18, fontWeight: FontWeight.w500),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            'Ahmed Saad Badawy',
-            style: GoogleFonts.poppins(
-              color: Colors.white,
+              color: primary,
               fontSize: 24,
               fontWeight: FontWeight.w600,
             ),
           ),
+          // Text(
+          //   'Assalamualaikum',
+          //   style: GoogleFonts.poppins(
+          //       color: primary, fontSize: 18, fontWeight: FontWeight.w500),
+          // ),
+          // const SizedBox(height: 4),
+          // Text(
+          //   'Ahmed Saad Badawy',
+          //   style: GoogleFonts.poppins(
+          //     color: Colors.white,
+          //     fontSize: 24,
+          //     fontWeight: FontWeight.w600,
+          //   ),
+          // ),
           const SizedBox(height: 24),
           const LastRead(),
         ],

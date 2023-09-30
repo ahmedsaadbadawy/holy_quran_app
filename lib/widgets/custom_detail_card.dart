@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../constants.dart';
 import '../models/surah_model.dart';
 
 class CustomDetailCard extends StatelessWidget {
@@ -20,28 +20,22 @@ class CustomDetailCard extends StatelessWidget {
         Container(
           height: 257,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              gradient: const LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  stops: [
-                    0,
-                    .6,
-                    1
-                  ],
-                  colors: [
-                    Color(0xFFB691FF),
-                    Color(0xFF6918B4),
-                    Color(0xFF36117E)
-                  ])),
+            borderRadius: BorderRadius.circular(20),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              stops: const [0, .6, 1],
+              colors: linearGradiant,
+            ),
+          ),
         ),
         Positioned(
-            bottom: 15,
-            right: 0,
+            bottom: -10,
+            right: -60,
             child: Opacity(
                 opacity: .2,
-                child: SvgPicture.asset(
-                  'assets/svgs/quran.svg',
+                child: Image.asset(
+                  'assets/svgs/muslim.png',
                   width: 324 - 55,
                 ))),
         Container(
@@ -103,10 +97,12 @@ class CustomDetailCard extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 32,
-              ),
-              SvgPicture.asset('assets/svgs/bismillah.svg')
+              Image.asset(
+                'assets/svgs/bismillah.png',
+                width: 200,
+                height: 80,
+                color: Colors.white,
+              )
             ],
           ),
         )

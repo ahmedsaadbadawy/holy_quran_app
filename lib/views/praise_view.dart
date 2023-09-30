@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/widgets/praise_custom_container.dart';
 
@@ -20,17 +19,17 @@ class PraiseView extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {},
-              icon: SvgPicture.asset('assets/svgs/menu-icon.svg'),
+              icon: const Icon(Icons.menu_outlined),
             ),
             const SizedBox(width: 24),
             Text(
               'Praise',
-              style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+              style: GoogleFonts.poppins(fontWeight: FontWeight.bold,color: font,),
             ),
             const Spacer(),
             IconButton(
               onPressed: () {},
-              icon: SvgPicture.asset('assets/svgs/search-icon.svg'),
+              icon: const Icon(Icons.search_outlined),
             ),
           ],
         ),

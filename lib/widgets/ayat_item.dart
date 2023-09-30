@@ -36,7 +36,7 @@ class AyatItem extends StatelessWidget {
             Text(
               ayat.quran!,
               style: GoogleFonts.amiri(
-                color: Colors.white,
+                color: font,
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),

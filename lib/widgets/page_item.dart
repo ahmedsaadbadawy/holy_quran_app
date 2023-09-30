@@ -28,7 +28,7 @@ class PageItem extends StatelessWidget {
               child: Text(
                 ayat.quran!.trim(),
                 style: GoogleFonts.amiri(
-                  color: Colors.white,
+                  color: font,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
@@ -82,7 +82,7 @@ class PageItem extends StatelessWidget {
                   child: Text(
                     ayat.quran!,
                     style: GoogleFonts.amiri(
-                      color: Colors.white,
+                      color: font,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
