@@ -12,13 +12,30 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+       // themeMode: tm,
+      // theme: ThemeData(
+      //   primaryColor: Colors.green,
+      //   backgroundColor: Colors.greenAccent,
+      //   scaffoldBackgroundColor: Colors.white,
+      //   canvasColor: Colors.black,
+      //   hintColor: Colors.greenAccent,
+      // ),
+      // darkTheme: ThemeData(
+      //   //primary
+      //   primaryColor: const Color(0xFF6918b4),
+      //   //gray
+      //   backgroundColor: const Color(0xFF121931),
+      //   //Background
+      //   scaffoldBackgroundColor: const Color(0xFF040C23),
+      //   //font
+      //   canvasColor: Colors.white,
+      //   //text
+      //   hintColor: const Color(0xFFb691ff),
+      // ),
       debugShowCheckedModeBanner: false,
-      home: const SplashView(),
+      home: SplashView(),
     );
   }
 }

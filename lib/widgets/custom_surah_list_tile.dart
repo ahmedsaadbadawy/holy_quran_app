@@ -27,7 +27,6 @@ class CustomSurahListTile extends StatelessWidget {
           ),
         );
 
-        prefs.write(kPrefSurahName, surahModel.enName);
       },
       child: ListTile(
         horizontalTitleGap: 10,

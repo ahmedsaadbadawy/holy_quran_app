@@ -22,3 +22,4 @@ String kPrefNumberOfAyat = 'NumberOfAyat';
 String kPageTabName = 'PageTap';
 
 int pageNum = 1;
+ThemeMode tm = ThemeMode.dark;
