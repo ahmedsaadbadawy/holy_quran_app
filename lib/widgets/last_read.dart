@@ -16,10 +16,13 @@ class LastRead extends StatefulWidget {
 class _LastReadState extends State<LastRead> {
   @override
   Widget build(BuildContext context) {
-    prefs.listen(() {
+    prefs.listenKey(kPrefSurahName, (_) {
       setState(() {});
     });
-    
+    prefs.listenKey(kPrefAyaNumber, (_) {
+      setState(() {});
+    });
+
     return Stack(
       children: [
         Container(

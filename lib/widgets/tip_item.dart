@@ -22,7 +22,7 @@ class TipItem extends StatelessWidget {
             child: Text(
               title,
               style: GoogleFonts.amiri(
-                color: text,
+                color: primary,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),

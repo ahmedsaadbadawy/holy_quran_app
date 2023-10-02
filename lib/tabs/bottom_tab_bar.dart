@@ -33,53 +33,50 @@ class _BottomTabBarState extends State<BottomTabBar> {
         showSelectedLabels: true,
         showUnselectedLabels: false,
         selectedItemColor: primary,
+        unselectedItemColor: tm == ThemeMode.dark ? Colors.grey : primary,
         elevation: 0,
         backgroundColor: gray,
-        items: [
-          const BottomNavigationBarItem(
+        items: const [
+          BottomNavigationBarItem(
             icon: Icon(
               Icons.book,
-              color: Colors.grey,
               size: 32,
             ),
             activeIcon: Icon(Icons.auto_stories, size: 32),
             label: 'Quran',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(
               Icons.lightbulb_outline,
-              color: Colors.grey,
               size: 32,
             ),
-            activeIcon: Icon(Icons.lightbulb, size: 32),
+            activeIcon: Icon(
+              Icons.lightbulb,
+              size: 32,
+            ),
             label: 'Tips',
           ),
           BottomNavigationBarItem(
-            icon: const Icon(
+            icon: Icon(
               FontAwesomeIcons.personPraying,
-              color: Colors.white54,
             ),
             activeIcon: Icon(
               FontAwesomeIcons.personPraying,
-              color: primary,
             ),
             label: 'Azkar',
           ),
           BottomNavigationBarItem(
-            icon: const Icon(
+            icon: Icon(
               FontAwesomeIcons.handsPraying,
-              color: Colors.white54,
             ),
             activeIcon: Icon(
               FontAwesomeIcons.handsPraying,
-              color: primary,
             ),
             label: 'Doa',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(
               Icons.touch_app_outlined,
-              color: Colors.grey,
               size: 32,
             ),
             activeIcon: Icon(Icons.touch_app, size: 32),

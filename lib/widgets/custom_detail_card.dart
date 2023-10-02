@@ -18,8 +18,7 @@ class CustomDetailCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Stack(children: [
         Container(
-         
-          height: 300,
+          height: MediaQuery.of(context).size.width < 365 ? 300 : 247,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             gradient: LinearGradient(
@@ -43,7 +42,7 @@ class CustomDetailCard extends StatelessWidget {
         ),
         Container(
           width: MediaQuery.of(context).size.width,
-          padding: const EdgeInsets.all(28),
+          padding: const EdgeInsets.all(18),
           child: Column(
             children: [
               Text(
@@ -103,7 +102,7 @@ class CustomDetailCard extends StatelessWidget {
               Image.asset(
                 'assets/svgs/bismillah.png',
                 fit: BoxFit.fill,
-                width: 200,
+                width: 250,
                 height: 80,
                 color: Colors.white,
               )

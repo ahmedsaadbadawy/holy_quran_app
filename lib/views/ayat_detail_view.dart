@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../widgets/page_item.dart';
+import '../cubits/change_theme_cubit/change_theme_cubit.dart';
 import '/constants.dart';
 import '/services/ayat_service.dart';
 
@@ -8,20 +9,18 @@ import '../models/surah_model.dart';
 import '../widgets/ayat_item.dart';
 import '../widgets/custom_detail_card.dart';
 
-class DetailView extends StatefulWidget {
-  const DetailView({
+class AyatDetailView extends StatefulWidget {
+  const AyatDetailView({
     super.key,
     required this.surah,
-    required this.tapName,
   });
   final SurahModel surah;
-  final String tapName;
 
   @override
-  State<DetailView> createState() => _DetailViewState();
+  State<AyatDetailView> createState() => _AyatDetailViewState();
 }
 
-class _DetailViewState extends State<DetailView> {
+class _AyatDetailViewState extends State<AyatDetailView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,30 +32,34 @@ class _DetailViewState extends State<DetailView> {
           title: Row(children: [
             IconButton(
               onPressed: (() {
+                print(
+                    'w = ${MediaQuery.of(context).size.width}  h = ${MediaQuery.of(context).size.height}');
                 Navigator.of(context).pop();
-                setState(() {});
               }),
-              icon: const Icon(Icons.arrow_back, size: 30),
+              icon: Icon(Icons.arrow_back,
+                  size: 20, color: tm == ThemeMode.dark ? Colors.white : text),
             ),
-            const SizedBox(
-              width: 24,
-            ),
+            if (MediaQuery.of(context).size.width > 365)
+              const SizedBox(
+                width: 24,
+              ),
             Text(
               widget.surah.enName!,
               style: GoogleFonts.poppins(
-                fontSize: 20,
+                fontSize: MediaQuery.of(context).size.width < 365 ? 10 : 20,
                 fontWeight: FontWeight.bold,
-                color: font,
+                color: tm == ThemeMode.dark ? Colors.white : primary,
               ),
             ),
             const Spacer(),
             DropdownMenu<String>(
+              width: 80,
               textStyle: TextStyle(color: gray),
               inputDecorationTheme:
                   const InputDecorationTheme(outlineBorder: BorderSide.none),
-              trailingIcon: const Icon(
+              trailingIcon: Icon(
                 Icons.menu,
-                color: Colors.white,
+                color: tm == ThemeMode.dark ? Colors.white : text,
               ),
               dropdownMenuEntries: const [
                 DropdownMenuEntry(value: 'Book Mark', label: 'Book Mark'),
@@ -104,32 +107,11 @@ class _DetailViewState extends State<DetailView> {
                   );
                   showDialog(context: context, builder: (context) => alert);
                 } else if (value == 'LightMode') {
-                  tm = ThemeMode.system;
-                  primary = const Color.fromARGB(255, 3, 72, 32);
-                  gray = const Color(0xFF00796A);
-                  background = const Color(0xFF00796A);
-                  font = Colors.white;
-                  text = const Color.fromARGB(255, 3, 74, 32);
-                  linearGradiant = [
-                    const Color(0xFF00796A),
-                    const Color(0xFF009788),
-                    const Color(0xFF00796A),
-                  ];
-                  setState(() {});
+                  BlocProvider.of<ChangeThemeCubit>(context)
+                      .changeTheme(ThemeState.light);
                 } else if (value == 'DarkMode') {
-                  background = const Color(0xFF040C23);
-                  text = const Color(0xFFb691ff);
-                  orange = const Color(0xFFF9B091);
-                  primary = const Color(0xFF6918b4);
-                  gray = const Color(0xFF121931);
-                  font = Colors.white;
-                  linearGradiant = const [
-                    Color(0xFFB691FF),
-                    Color(0xFF6918B4),
-                    Color(0xFF36117E),
-                  ];
-                  tm = ThemeMode.dark;
-                  setState(() {});
+                  BlocProvider.of<ChangeThemeCubit>(context)
+                      .changeTheme(ThemeState.dark);
                 }
               },
             ),
@@ -150,11 +132,7 @@ class _DetailViewState extends State<DetailView> {
                 } else {
                   return ListView.builder(
                     itemBuilder: (BuildContext context, int index) {
-                      if (widget.tapName == kPageTabName) {
-                        return PageItem(surah: widget.surah);
-                      } else {
-                        return AyatItem(ayat: snapshot.data[index]);
-                      }
+                      return AyatItem(ayat: snapshot.data[index]);
                     },
                     itemCount: snapshot.data.length,
                   );

@@ -22,7 +22,7 @@ class Greetings extends StatelessWidget {
           Text(
             'Assalamualaikum',
             style: GoogleFonts.poppins(
-              color: primary,
+              color: tm == ThemeMode.dark ? primary : Colors.black,
               fontSize: 24,
               fontWeight: FontWeight.w600,
             ),

@@ -30,7 +30,7 @@ class _PraiseCustomContainerState extends State<PraiseCustomContainer> {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              gradient:  LinearGradient(
+              gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 stops: const [0, .6, 1],
@@ -44,8 +44,8 @@ class _PraiseCustomContainerState extends State<PraiseCustomContainer> {
                   Text(
                     widget.title,
                     style: GoogleFonts.amiri(
-                      color: background,
-                      fontSize: 24,
+                      color: tm == ThemeMode.dark ? gray : primary,
+                     fontSize: MediaQuery.of(context).size.width < 365 ?18 : 24,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.right,
@@ -54,7 +54,7 @@ class _PraiseCustomContainerState extends State<PraiseCustomContainer> {
                   Text(
                     widget.subTitle,
                     style: GoogleFonts.amiri(
-                      color: font,
+                      color: Colors.black,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),

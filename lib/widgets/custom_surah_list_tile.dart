@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/models/surah_model.dart';
-import 'package:quran_app/views/detail_view.dart';
+import 'package:quran_app/views/ayat_detail_view.dart';
 
 import '../constants.dart';
+import '../views/pages_detail_view.dart';
 
 class CustomSurahListTile extends StatelessWidget {
   const CustomSurahListTile({
@@ -18,15 +19,23 @@ class CustomSurahListTile extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => DetailView(
-              surah: surahModel,
-              tapName: tapName,
+        if (tapName == kPageTabName) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => PageDetailView(
+                surah: surahModel,
+              ),
             ),
-          ),
-        );
-
+          );
+        } else {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => AyatDetailView(
+                surah: surahModel,
+              ),
+            ),
+          );
+        }
       },
       child: ListTile(
         horizontalTitleGap: 10,
@@ -62,8 +71,10 @@ class CustomSurahListTile extends StatelessWidget {
                 surahModel.revelation!,
                 style: GoogleFonts.poppins(
                   color: text,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12,
+                  fontWeight: MediaQuery.of(context).size.width < 365
+                      ? FontWeight.w400
+                      : FontWeight.w700,
+                  fontSize: MediaQuery.of(context).size.width < 365 ? 10 : 14,
                 ),
               ),
               const SizedBox(
@@ -82,7 +93,10 @@ class CustomSurahListTile extends StatelessWidget {
                 "${surahModel.numberOfVerses} Ayat",
                 style: GoogleFonts.poppins(
                   color: text,
-                  fontWeight: FontWeight.w400,
+                  fontWeight: MediaQuery.of(context).size.width < 365
+                      ? FontWeight.w400
+                      : FontWeight.w700,
+                  fontSize: MediaQuery.of(context).size.width < 365 ? 10 : 14,
                 ),
               ),
             ],

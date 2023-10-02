@@ -12,27 +12,24 @@ class DoaView extends StatelessWidget {
     return Scaffold(
       backgroundColor: background,
       appBar: AppBar(
-        backgroundColor: background,
+        backgroundColor: gray,
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(
           children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.menu_outlined),
+            const SizedBox(
+              width: 24,
             ),
-            const SizedBox(width: 24),
             Text(
               'Doa',
-              style: GoogleFonts.poppins(fontWeight: FontWeight.bold,color: font,),
-            ),
-            const Spacer(),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.search_outlined),
+              style: GoogleFonts.poppins(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: tm == ThemeMode.dark ? Colors.white : primary,
+              ),
             ),
           ],
         ),
-        automaticallyImplyLeading: false,
       ),
       body: ListView.builder(itemBuilder: (context, index) {
         return Padding(
@@ -41,11 +38,11 @@ class DoaView extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              gradient:  LinearGradient(
+              gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 stops: const [0, .6, 1],
-                colors:linearGradiant,
+                colors: linearGradiant,
               ),
             ),
             child: Padding(
@@ -55,21 +52,24 @@ class DoaView extends StatelessWidget {
                   Text(
                     "بِسْمِ اللهِ الرَّحْمنِ الرَّحِيم",
                     style: GoogleFonts.amiri(
-                      color: background,
-                      fontSize: 24,
+                      color: tm == ThemeMode.dark ? gray : primary,
+                      fontSize:
+                          MediaQuery.of(context).size.width < 365 ? 18 : 24,
                       fontWeight: FontWeight.bold,
                     ),
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.center,
+                    textDirection: TextDirection.rtl,
                   ),
                   const SizedBox(height: 16),
                   Text(
                     doa[index],
                     style: GoogleFonts.amiri(
-                      color: Colors.white,
-                      fontSize: 22,
+                      color: Colors.black,
+                      fontSize: MediaQuery.of(context).size.width < 365 ?18 : 22,
                       fontWeight: FontWeight.bold,
                     ),
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.center,
+                    textDirection: TextDirection.rtl,
                   ),
                 ],
               ),

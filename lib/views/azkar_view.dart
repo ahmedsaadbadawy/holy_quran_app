@@ -12,30 +12,24 @@ class AzkarView extends StatelessWidget {
     return Scaffold(
       backgroundColor: background,
       appBar: AppBar(
-        backgroundColor: background,
+        backgroundColor: gray,
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(
           children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.menu_outlined),
+            const SizedBox(
+              width: 24,
             ),
-            const SizedBox(width: 24),
             Text(
               'Azkar',
               style: GoogleFonts.poppins(
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: font,
+                color: tm == ThemeMode.dark ? Colors.white : primary,
               ),
-            ),
-            const Spacer(),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.search_outlined),
             ),
           ],
         ),
-        automaticallyImplyLeading: false,
       ),
       body: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -44,7 +38,8 @@ class AzkarView extends StatelessWidget {
                     children: [
                       Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 175,
+                        height:
+                            MediaQuery.of(context).size.width < 365 ? 175 : 125,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           gradient: LinearGradient(
@@ -64,7 +59,7 @@ class AzkarView extends StatelessWidget {
                             style: GoogleFonts.poppins(
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
-                              fontSize: 24,
+                              fontSize:MediaQuery.of(context).size.width < 365 ?18 : 22,
                             ),
                             textAlign: TextAlign.right,
                           ),
@@ -119,10 +114,11 @@ class AzkarView extends StatelessWidget {
         title,
         style: GoogleFonts.amiri(
           color: primary,
-          fontSize: 30,
+          fontSize: MediaQuery.of(context).size.width < 365 ?20 : 22,
           fontWeight: FontWeight.bold,
         ),
-        textAlign: TextAlign.right,
+        textAlign: TextAlign.center,
+                    textDirection: TextDirection.rtl,
       ),
     );
   }

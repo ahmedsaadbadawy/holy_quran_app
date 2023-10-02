@@ -37,67 +37,67 @@ class _CustomPlayAudioState extends State<CustomPlayAudio> {
   Widget build(BuildContext context) {
     return BlocBuilder<AudioCubit, AudioState>(
       builder: (context, state) {
-        return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-          decoration: BoxDecoration(
-              color: gray, borderRadius: BorderRadius.circular(22)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                width: 27,
-                height: 27,
-                decoration: BoxDecoration(
-                    color: primary,
-                    borderRadius: BorderRadius.circular(27 / 2)),
-                child: Center(
-                    child: Text(
-                  '${widget.ayat.numberinSurah}',
-                  style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w500, color: Colors.white),
-                )),
-              ),
-              const SizedBox(
-                height: 2,
-              ),
-              customSlider(),
-              GestureDetector(
-                onTap: () {},
-                child: const Icon(
-                  Icons.share_outlined,
-                  color: Colors.white,
+        return SafeArea(
+          child: Container(
+            width: MediaQuery.of(context).size.width - 55,
+            height: 55,
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            decoration: BoxDecoration(
+                color: tm == ThemeMode.dark
+                    ? gray
+                    : const Color.fromARGB(255, 228, 226, 232),
+                borderRadius: BorderRadius.circular(22)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  width: 27,
+                  height: 27,
+                  decoration: BoxDecoration(
+                      color: primary,
+                      borderRadius: BorderRadius.circular(27 / 2)),
+                  child: Center(
+                      child: Text(
+                    '${widget.ayat.numberinSurah}',
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500, color: Colors.white),
+                  )),
                 ),
-              ),
-              const SizedBox(
-                height: 2,
-              ),
-              InkWell(
-                onTap: () {
-                  BlocProvider.of<AudioCubit>(context)
-                      .getAudio(url: widget.ayat.audio.toString());
-                },
-                child: Icon(
-                  BlocProvider.of<AudioCubit>(context).playing == false
-                      ? Icons.play_arrow_outlined
-                      : Icons.pause_circle_outlined,
-                  color: Colors.white,
+                const SizedBox(
+                  width: 2,
                 ),
-              ),
-              const SizedBox(
-                height: 2,
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: const Icon(
-                  Icons.bookmark_outline,
-                  color: Colors.white,
+                customSlider(),
+                GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    Icons.share_outlined,
+                    color: tm == ThemeMode.dark ? Colors.white : primary,
+                  ),
                 ),
-              ),
-            ],
+                InkWell(
+                  onTap: () {
+                    BlocProvider.of<AudioCubit>(context)
+                        .getAudio(url: widget.ayat.audio.toString());
+                  },
+                  child: Icon(
+                    BlocProvider.of<AudioCubit>(context).playing == false
+                        ? Icons.play_arrow_outlined
+                        : Icons.pause_circle_outlined,
+                    color: tm == ThemeMode.dark ? Colors.white : primary,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    Icons.bookmark_outline,
+                    color: tm == ThemeMode.dark ? Colors.white : primary,
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
     );
   }
-
 }

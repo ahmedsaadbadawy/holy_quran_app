@@ -41,7 +41,7 @@ class AyatItem extends StatelessWidget {
           Text(
             ayat.translation!,
             style: GoogleFonts.poppins(
-              color: text,
+              color: tm == ThemeMode.dark ? text : Colors.black,
               fontSize: 16,
             ),
             textAlign: TextAlign.left,

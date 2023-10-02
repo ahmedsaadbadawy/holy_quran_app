@@ -14,30 +14,24 @@ class TipsView extends StatelessWidget {
     return Scaffold(
       backgroundColor: background,
       appBar: AppBar(
-        backgroundColor: background,
+        backgroundColor: gray,
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(
           children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.menu_outlined),
+            const SizedBox(
+              width: 24,
             ),
-            const SizedBox(width: 24),
             Text(
               'Tips',
               style: GoogleFonts.poppins(
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: font,
+                color: tm == ThemeMode.dark ? Colors.white : primary,
               ),
-            ),
-            const Spacer(),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.search_outlined),
             ),
           ],
         ),
-        automaticallyImplyLeading: false,
       ),
       body: ListView.builder(
         itemCount: tips.length,

@@ -21,10 +21,10 @@ class PageItem extends StatelessWidget {
             const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 30),
         child: Text(
           surahList[surah.number! - 1]['surah'],
-          style: GoogleFonts.notoNaskhArabic(
+          style: GoogleFonts.amiri(
             color: font,
-            fontSize: 26,
-            height: 2.8,
+           fontSize: MediaQuery.of(context).size.width < 365 ?21 : 26,
+            height: 2,
             wordSpacing: 1,
             fontWeight: FontWeight.bold,
           ),

@@ -19,7 +19,33 @@ class AzkarDetailView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: background,
-      appBar: appBar(context),
+      appBar: AppBar(
+        backgroundColor: gray,
+        automaticallyImplyLeading: false,
+        elevation: 0,
+        title: Row(
+          children: [
+            IconButton(
+              onPressed: (() {
+                Navigator.of(context).pop();
+              }),
+              icon: Icon(Icons.arrow_back,
+                  size: 30, color: tm == ThemeMode.dark ? Colors.white : text),
+            ),
+            const SizedBox(
+              width: 8,
+            ),
+            Text(
+              title,
+              style: GoogleFonts.poppins(
+                fontSize: MediaQuery.of(context).size.width < 365 ?18 : 22,
+                fontWeight: FontWeight.bold,
+                color: tm == ThemeMode.dark ? Colors.white : primary,
+              ),
+            ),
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: AzkarCustomContainer(
           title: title,
@@ -29,35 +55,4 @@ class AzkarDetailView extends StatelessWidget {
     );
   }
 
-  AppBar appBar(BuildContext context) {
-    return AppBar(
-      backgroundColor: background,
-      automaticallyImplyLeading: false,
-      elevation: 0,
-      title: Row(children: [
-        IconButton(
-            onPressed: (() => Navigator.of(context).pop()),
-            icon: const Icon(
-              Icons.arrow_back_rounded,
-              size: 30,
-            )),
-        const SizedBox(
-          width: 24,
-        ),
-        Text(
-          title,
-          style: GoogleFonts.poppins(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: font,
-          ),
-        ),
-        const Spacer(),
-        IconButton(
-          onPressed: (() => {}),
-          icon: const Icon(Icons.search_outlined),
-        ),
-      ]),
-    );
-  }
 }
