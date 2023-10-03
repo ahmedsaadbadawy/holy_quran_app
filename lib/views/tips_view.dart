@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/models/tips.dart';
 
-import '../constants.dart';
 import '../widgets/tip_item.dart';
 
 // ignore: must_be_immutable
@@ -12,9 +11,10 @@ class TipsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: gray,
+        // ignore: deprecated_member_use
+        backgroundColor: Theme.of(context).backgroundColor,
         automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(
@@ -27,7 +27,7 @@ class TipsView extends StatelessWidget {
               style: GoogleFonts.poppins(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: tm == ThemeMode.dark ? Colors.white : primary,
+                color: Theme.of(context).highlightColor,
               ),
             ),
           ],

@@ -28,7 +28,7 @@ class _CustomPlayAudioState extends State<CustomPlayAudio> {
       max: BlocProvider.of<AudioCubit>(context).duration.inSeconds.toDouble(),
       onChanged: (_) {},
       activeColor: primary,
-      inactiveColor: background,
+      inactiveColor: Theme.of(context).scaffoldBackgroundColor,
       thumbColor: primary,
     );
   }
@@ -44,7 +44,7 @@ class _CustomPlayAudioState extends State<CustomPlayAudio> {
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             decoration: BoxDecoration(
                 color: tm == ThemeMode.dark
-                    ? gray
+                    ? const Color(0xFF121931)
                     : const Color.fromARGB(255, 228, 226, 232),
                 borderRadius: BorderRadius.circular(22)),
             child: Row(
@@ -67,13 +67,7 @@ class _CustomPlayAudioState extends State<CustomPlayAudio> {
                   width: 2,
                 ),
                 customSlider(),
-                GestureDetector(
-                  onTap: () {},
-                  child: Icon(
-                    Icons.share_outlined,
-                    color: tm == ThemeMode.dark ? Colors.white : primary,
-                  ),
-                ),
+                
                 InkWell(
                   onTap: () {
                     BlocProvider.of<AudioCubit>(context)
@@ -83,14 +77,14 @@ class _CustomPlayAudioState extends State<CustomPlayAudio> {
                     BlocProvider.of<AudioCubit>(context).playing == false
                         ? Icons.play_arrow_outlined
                         : Icons.pause_circle_outlined,
-                    color: tm == ThemeMode.dark ? Colors.white : primary,
+                    color:Theme.of(context).highlightColor,
                   ),
                 ),
                 GestureDetector(
                   onTap: () {},
                   child: Icon(
                     Icons.bookmark_outline,
-                    color: tm == ThemeMode.dark ? Colors.white : primary,
+                    color: Theme.of(context).highlightColor,
                   ),
                 ),
               ],

@@ -18,9 +18,10 @@ class PageDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: background,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
-          backgroundColor: gray,
+          // ignore: deprecated_member_use
+          backgroundColor: Theme.of(context).backgroundColor,
           automaticallyImplyLeading: false,
           elevation: 0,
           title: Row(children: [
@@ -31,7 +32,7 @@ class PageDetailView extends StatelessWidget {
                 Navigator.of(context).pop();
               }),
               icon: Icon(Icons.arrow_back,
-                  size: 20, color: tm == ThemeMode.dark ? Colors.white : text),
+                  size: 20, color: tm == ThemeMode.dark ? Colors.white : const Color.fromARGB(255, 130, 128, 128)),
             ),
             if (MediaQuery.of(context).size.width > 365)
               const SizedBox(
@@ -42,18 +43,19 @@ class PageDetailView extends StatelessWidget {
               style: GoogleFonts.poppins(
                 fontSize: MediaQuery.of(context).size.width < 365 ? 10 : 20,
                 fontWeight: FontWeight.bold,
-                color: tm == ThemeMode.dark ? Colors.white : primary,
+                color: Theme.of(context).highlightColor,
               ),
             ),
             const Spacer(),
             DropdownMenu<String>(
               width: 80,
-              textStyle: TextStyle(color: gray),
+              // ignore: deprecated_member_use
+              textStyle: TextStyle(color: Theme.of(context).backgroundColor),
               inputDecorationTheme:
                   const InputDecorationTheme(outlineBorder: BorderSide.none),
               trailingIcon: Icon(
                 Icons.menu,
-                color: tm == ThemeMode.dark ? Colors.white : text,
+                color: tm == ThemeMode.dark ? Colors.white : const Color.fromARGB(255, 130, 128, 128),
               ),
               dropdownMenuEntries: const [
                 DropdownMenuEntry(value: 'Book Mark', label: 'Book Mark'),
@@ -123,7 +125,7 @@ class PageDetailView extends StatelessWidget {
               child: Text(
                 surahList[surah.number! - 1]['surah'],
                 style: GoogleFonts.amiri(
-                  color: font,
+                  color: Theme.of(context).primaryColor,
                   fontSize: MediaQuery.of(context).size.width < 365 ? 21 : 26,
                   height: MediaQuery.of(context).size.width < 365 ? 2 : 2.8,
                   wordSpacing: 1,

@@ -14,9 +14,10 @@ class MyHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: gray,
+        // ignore: deprecated_member_use
+        backgroundColor: Theme.of(context).backgroundColor,
         automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(children: [
@@ -29,7 +30,7 @@ class MyHomeView extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontSize: MediaQuery.of(context).size.width < 365 ? 16 : 20,
               fontWeight: FontWeight.bold,
-              color: tm == ThemeMode.dark ? Colors.white : primary,
+              color:Theme.of(context).highlightColor,
             ),
           ),
           if (MediaQuery.of(context).size.width > 365) const Spacer(),
@@ -39,16 +40,17 @@ class MyHomeView extends StatelessWidget {
               elevation: MaterialStatePropertyAll(0),
             ),
             textStyle: TextStyle(
-              color: gray,
+              // ignore: deprecated_member_use
+              color: Theme.of(context).backgroundColor,
             ),
             inputDecorationTheme: InputDecorationTheme(
-              fillColor: gray,
+              // ignore: deprecated_member_use
+              fillColor: Theme.of(context).backgroundColor,
               outlineBorder: BorderSide.none,
-              //labelStyle: TextStyle(color: gray),
             ),
             trailingIcon: Icon(
               Icons.menu,
-              color: tm == ThemeMode.dark ? Colors.white : text,
+              color: tm == ThemeMode.dark ? Colors.white : const Color.fromARGB(255, 130, 128, 128),
             ),
             dropdownMenuEntries: const [
               DropdownMenuEntry(value: 'LightMode', label: 'LightMode'),
@@ -78,7 +80,7 @@ class MyHomeView extends StatelessWidget {
               SliverAppBar(
                 pinned: true,
                 elevation: 0,
-                backgroundColor: background,
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                 automaticallyImplyLeading: false,
                 shape: Border(
                     bottom: BorderSide(
@@ -102,8 +104,8 @@ class MyHomeView extends StatelessWidget {
   TabBar customTabBar(BuildContext context) {
     return TabBar(
       indicatorColor: primary,
-      unselectedLabelColor: text,
-      labelColor: tm == ThemeMode.dark ? font : primary,
+      unselectedLabelColor: Theme.of(context).hintColor,
+      labelColor: tm == ThemeMode.dark ? Colors.white : primary,
       indicatorWeight: 3,
       tabs: [
         Tab(

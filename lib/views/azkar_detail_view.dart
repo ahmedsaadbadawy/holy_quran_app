@@ -18,9 +18,10 @@ class AzkarDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: gray,
+        // ignore: deprecated_member_use
+        backgroundColor: Theme.of(context).backgroundColor,
         automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(
@@ -30,7 +31,7 @@ class AzkarDetailView extends StatelessWidget {
                 Navigator.of(context).pop();
               }),
               icon: Icon(Icons.arrow_back,
-                  size: 30, color: tm == ThemeMode.dark ? Colors.white : text),
+                  size: 30, color: tm == ThemeMode.dark ? Colors.white : const Color.fromARGB(255, 130, 128, 128)),
             ),
             const SizedBox(
               width: 8,
@@ -40,7 +41,7 @@ class AzkarDetailView extends StatelessWidget {
               style: GoogleFonts.poppins(
                 fontSize: MediaQuery.of(context).size.width < 365 ?18 : 22,
                 fontWeight: FontWeight.bold,
-                color: tm == ThemeMode.dark ? Colors.white : primary,
+                color: Theme.of(context).highlightColor,
               ),
             ),
           ],

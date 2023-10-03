@@ -10,9 +10,9 @@ class DoaView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: gray,
+        backgroundColor: Theme.of(context).colorScheme.background,
         automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(
@@ -52,7 +52,7 @@ class DoaView extends StatelessWidget {
                   Text(
                     "بِسْمِ اللهِ الرَّحْمنِ الرَّحِيم",
                     style: GoogleFonts.amiri(
-                      color: tm == ThemeMode.dark ? gray : primary,
+                      color: tm == ThemeMode.dark ? const Color(0xFF121931) : primary,
                       fontSize:
                           MediaQuery.of(context).size.width < 365 ? 18 : 24,
                       fontWeight: FontWeight.bold,

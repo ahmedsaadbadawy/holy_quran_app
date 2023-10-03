@@ -9,7 +9,7 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: Center(
           child: Column(
@@ -27,7 +27,7 @@ class SplashView extends StatelessWidget {
               const SizedBox(height: 16),
               Text(
                 'Learn Quran and\nRecite onve everyday',
-                style: GoogleFonts.poppins(fontSize: 18, color: text),
+                style: GoogleFonts.poppins(fontSize: 18, color: Theme.of(context).hintColor),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 30),

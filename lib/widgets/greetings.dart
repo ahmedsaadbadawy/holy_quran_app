@@ -23,24 +23,10 @@ class Greetings extends StatelessWidget {
             'Assalamualaikum',
             style: GoogleFonts.poppins(
               color: tm == ThemeMode.dark ? primary : Colors.black,
-              fontSize: 24,
+              fontSize: MediaQuery.of(context).size.width < 365 ? 18 : 24,
               fontWeight: FontWeight.w600,
             ),
           ),
-          // Text(
-          //   'Assalamualaikum',
-          //   style: GoogleFonts.poppins(
-          //       color: primary, fontSize: 18, fontWeight: FontWeight.w500),
-          // ),
-          // const SizedBox(height: 4),
-          // Text(
-          //   'Ahmed Saad Badawy',
-          //   style: GoogleFonts.poppins(
-          //     color: Colors.white,
-          //     fontSize: 24,
-          //     fontWeight: FontWeight.w600,
-          //   ),
-          // ),
           const SizedBox(height: 24),
           const LastRead(),
         ],

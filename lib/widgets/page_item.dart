@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../constants.dart';
 import '../models/surah.dart';
 import '../models/surah_model.dart';
 
@@ -22,7 +21,7 @@ class PageItem extends StatelessWidget {
         child: Text(
           surahList[surah.number! - 1]['surah'],
           style: GoogleFonts.amiri(
-            color: font,
+            color: Theme.of(context).primaryColor,
            fontSize: MediaQuery.of(context).size.width < 365 ?21 : 26,
             height: 2,
             wordSpacing: 1,

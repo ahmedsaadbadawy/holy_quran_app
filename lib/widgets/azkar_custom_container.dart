@@ -72,7 +72,7 @@ class _AzkarCustomContainerState extends State<AzkarCustomContainer> {
                           zekr['subtitle'],
                           style: GoogleFonts.amiri(
                             color: tm == ThemeMode.dark
-                                ? gray
+                                ? const Color(0xFF121931)
                                 : const Color.fromARGB(255, 19, 27, 56),
                             fontSize: MediaQuery.of(context).size.width < 365 ?18 : 20,
                             fontWeight: FontWeight.bold,
@@ -83,7 +83,7 @@ class _AzkarCustomContainerState extends State<AzkarCustomContainer> {
                       Text(
                         zekr['number'].toString(),
                         style: GoogleFonts.amiri(
-                          color: font,
+                          color: Theme.of(context).primaryColor,
                           fontSize: MediaQuery.of(context).size.width < 365 ?18 : 22,
                           fontWeight: FontWeight.bold,
                         ),

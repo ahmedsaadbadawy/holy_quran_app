@@ -24,9 +24,10 @@ class _AyatDetailViewState extends State<AyatDetailView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: background,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
-          backgroundColor: gray,
+          // ignore: deprecated_member_use
+          backgroundColor: Theme.of(context).backgroundColor,
           automaticallyImplyLeading: false,
           elevation: 0,
           title: Row(children: [
@@ -37,7 +38,7 @@ class _AyatDetailViewState extends State<AyatDetailView> {
                 Navigator.of(context).pop();
               }),
               icon: Icon(Icons.arrow_back,
-                  size: 20, color: tm == ThemeMode.dark ? Colors.white : text),
+                  size: 20, color: tm == ThemeMode.dark ? Colors.white : const Color.fromARGB(255, 130, 128, 128)),
             ),
             if (MediaQuery.of(context).size.width > 365)
               const SizedBox(
@@ -54,12 +55,13 @@ class _AyatDetailViewState extends State<AyatDetailView> {
             const Spacer(),
             DropdownMenu<String>(
               width: 80,
-              textStyle: TextStyle(color: gray),
+              // ignore: deprecated_member_use
+              textStyle: TextStyle(color: Theme.of(context).backgroundColor),
               inputDecorationTheme:
                   const InputDecorationTheme(outlineBorder: BorderSide.none),
               trailingIcon: Icon(
                 Icons.menu,
-                color: tm == ThemeMode.dark ? Colors.white : text,
+                color: tm == ThemeMode.dark ? Colors.white : const Color.fromARGB(255, 130, 128, 128),
               ),
               dropdownMenuEntries: const [
                 DropdownMenuEntry(value: 'Book Mark', label: 'Book Mark'),

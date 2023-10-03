@@ -1,3 +1,4 @@
+// ignore: 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quran_app/views/doa_view.dart';
@@ -35,7 +36,8 @@ class _BottomTabBarState extends State<BottomTabBar> {
         selectedItemColor: primary,
         unselectedItemColor: tm == ThemeMode.dark ? Colors.grey : primary,
         elevation: 0,
-        backgroundColor: gray,
+        // ignore: deprecated_member_use
+        backgroundColor:Theme.of(context).backgroundColor,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(

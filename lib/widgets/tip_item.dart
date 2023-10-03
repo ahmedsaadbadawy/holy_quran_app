@@ -35,7 +35,7 @@ class TipItem extends StatelessWidget {
                 Text(
                   item,
                   style: GoogleFonts.poppins(
-                    color: font,
+                    color: Theme.of(context).primaryColor,
                     fontSize: 22,
                   ),
                   textAlign: TextAlign.right,

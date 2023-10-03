@@ -10,9 +10,10 @@ class AzkarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: gray,
+        // ignore: deprecated_member_use
+        backgroundColor: Theme.of(context).backgroundColor,
         automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(

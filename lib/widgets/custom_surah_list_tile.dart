@@ -51,14 +51,14 @@ class CustomSurahListTile extends StatelessWidget {
             ),
             Text(
               '${surahModel.number}',
-              style: TextStyle(color: font),
+              style: TextStyle(color: Theme.of(context).primaryColor),
             ),
           ],
         ),
         title: Text(
           '${surahModel.enName}',
           style: GoogleFonts.poppins(
-            color: font,
+            color: Theme.of(context).primaryColor,
             fontSize: 14,
             fontWeight: FontWeight.w600,
           ),
@@ -70,7 +70,7 @@ class CustomSurahListTile extends StatelessWidget {
               Text(
                 surahModel.revelation!,
                 style: GoogleFonts.poppins(
-                  color: text,
+                  color: Theme.of(context).hintColor,
                   fontWeight: MediaQuery.of(context).size.width < 365
                       ? FontWeight.w400
                       : FontWeight.w700,
@@ -84,7 +84,7 @@ class CustomSurahListTile extends StatelessWidget {
                 width: 4,
                 height: 4,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(2), color: text),
+                    borderRadius: BorderRadius.circular(2), color: Theme.of(context).hintColor),
               ),
               const SizedBox(
                 width: 4,
@@ -92,7 +92,7 @@ class CustomSurahListTile extends StatelessWidget {
               Text(
                 "${surahModel.numberOfVerses} Ayat",
                 style: GoogleFonts.poppins(
-                  color: text,
+                  color: Theme.of(context).hintColor,
                   fontWeight: MediaQuery.of(context).size.width < 365
                       ? FontWeight.w400
                       : FontWeight.w700,

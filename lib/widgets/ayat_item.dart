@@ -31,7 +31,7 @@ class AyatItem extends StatelessWidget {
           Text(
             ayat.quran!,
             style: GoogleFonts.amiri(
-              color: font,
+              color: Theme.of(context).primaryColor,
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
@@ -41,7 +41,7 @@ class AyatItem extends StatelessWidget {
           Text(
             ayat.translation!,
             style: GoogleFonts.poppins(
-              color: tm == ThemeMode.dark ? text : Colors.black,
+              color: tm == ThemeMode.dark ? const Color(0xFFb691ff) : Colors.black,
               fontSize: 16,
             ),
             textAlign: TextAlign.left,

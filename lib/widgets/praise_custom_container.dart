@@ -44,8 +44,11 @@ class _PraiseCustomContainerState extends State<PraiseCustomContainer> {
                   Text(
                     widget.title,
                     style: GoogleFonts.amiri(
-                      color: tm == ThemeMode.dark ? gray : primary,
-                     fontSize: MediaQuery.of(context).size.width < 365 ?18 : 24,
+                      color: tm == ThemeMode.dark
+                          ? const Color(0xFF121931)
+                          : primary,
+                      fontSize:
+                          MediaQuery.of(context).size.width < 365 ? 18 : 24,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.right,
@@ -63,7 +66,8 @@ class _PraiseCustomContainerState extends State<PraiseCustomContainer> {
                   const SizedBox(height: 12),
                   Text(
                     '$number',
-                    style: TextStyle(color: background),
+                    style: TextStyle(
+                        color: Theme.of(context).scaffoldBackgroundColor),
                   ),
                 ],
               ),
@@ -84,7 +88,7 @@ class _PraiseCustomContainerState extends State<PraiseCustomContainer> {
             ),
             child: Icon(
               Icons.add,
-              color: background,
+              color: Theme.of(context).scaffoldBackgroundColor,
             ),
           ),
         ),
