@@ -49,22 +49,25 @@ class _AzkarCustomContainerState extends State<AzkarCustomContainer> {
                           zekr['basmalah'],
                           style: GoogleFonts.amiri(
                             color: primary,
-                            fontSize: MediaQuery.of(context).size.width < 365 ?18 : 22,
+                            fontSize: MediaQuery.of(context).size.width < 365
+                                ? 18
+                                : 22,
                             fontWeight: FontWeight.bold,
                           ),
                           textAlign: TextAlign.center,
-                    textDirection: TextDirection.rtl,
+                          textDirection: TextDirection.rtl,
                         ),
                       const SizedBox(height: 16),
                       Text(
                         zekr['body'],
                         style: GoogleFonts.amiri(
                           color: Colors.black,
-                         fontSize: MediaQuery.of(context).size.width < 365 ?18 : 22,
+                          fontSize:
+                              MediaQuery.of(context).size.width < 365 ? 16 : 20,
                           fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.center,
-                    textDirection: TextDirection.rtl,
+                        textDirection: TextDirection.rtl,
                       ),
                       const SizedBox(height: 12),
                       if (zekr['subtitle'] != null)
@@ -74,17 +77,20 @@ class _AzkarCustomContainerState extends State<AzkarCustomContainer> {
                             color: tm == ThemeMode.dark
                                 ? const Color(0xFF121931)
                                 : const Color.fromARGB(255, 19, 27, 56),
-                            fontSize: MediaQuery.of(context).size.width < 365 ?18 : 20,
+                            fontSize: MediaQuery.of(context).size.width < 365
+                                ? 10
+                                : 16,
                             fontWeight: FontWeight.bold,
                           ),
                           textAlign: TextAlign.right,
-                    textDirection: TextDirection.rtl,
+                          textDirection: TextDirection.rtl,
                         ),
                       Text(
                         zekr['number'].toString(),
                         style: GoogleFonts.amiri(
                           color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.width < 365 ?18 : 22,
+                          fontSize:
+                              MediaQuery.of(context).size.width < 365 ? 18 : 22,
                           fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.center,

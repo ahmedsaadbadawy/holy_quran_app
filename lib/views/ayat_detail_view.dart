@@ -33,12 +33,13 @@ class _AyatDetailViewState extends State<AyatDetailView> {
           title: Row(children: [
             IconButton(
               onPressed: (() {
-                print(
-                    'w = ${MediaQuery.of(context).size.width}  h = ${MediaQuery.of(context).size.height}');
                 Navigator.of(context).pop();
               }),
               icon: Icon(Icons.arrow_back,
-                  size: 20, color: tm == ThemeMode.dark ? Colors.white : const Color.fromARGB(255, 130, 128, 128)),
+                  size: 20,
+                  color: tm == ThemeMode.dark
+                      ? Colors.white
+                      : const Color.fromARGB(255, 130, 128, 128)),
             ),
             if (MediaQuery.of(context).size.width > 365)
               const SizedBox(
@@ -47,9 +48,9 @@ class _AyatDetailViewState extends State<AyatDetailView> {
             Text(
               widget.surah.enName!,
               style: GoogleFonts.poppins(
-                fontSize: MediaQuery.of(context).size.width < 365 ? 10 : 20,
+                fontSize: MediaQuery.of(context).size.width < 365 ? 14 : 20,
                 fontWeight: FontWeight.bold,
-                color: tm == ThemeMode.dark ? Colors.white : primary,
+                color: Theme.of(context).highlightColor,
               ),
             ),
             const Spacer(),
@@ -61,7 +62,9 @@ class _AyatDetailViewState extends State<AyatDetailView> {
                   const InputDecorationTheme(outlineBorder: BorderSide.none),
               trailingIcon: Icon(
                 Icons.menu,
-                color: tm == ThemeMode.dark ? Colors.white : const Color.fromARGB(255, 130, 128, 128),
+                color: tm == ThemeMode.dark
+                    ? Colors.white
+                    : const Color.fromARGB(255, 130, 128, 128),
               ),
               dropdownMenuEntries: const [
                 DropdownMenuEntry(value: 'Book Mark', label: 'Book Mark'),

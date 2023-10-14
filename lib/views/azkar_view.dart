@@ -26,7 +26,7 @@ class AzkarView extends StatelessWidget {
               style: GoogleFonts.poppins(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: tm == ThemeMode.dark ? Colors.white : primary,
+                color: Theme.of(context).highlightColor,
               ),
             ),
           ],
@@ -40,7 +40,7 @@ class AzkarView extends StatelessWidget {
                       Container(
                         width: MediaQuery.of(context).size.width,
                         height:
-                            MediaQuery.of(context).size.width < 365 ? 175 : 125,
+                            MediaQuery.of(context).size.width < 365 ? 115 : 125,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           gradient: LinearGradient(
@@ -60,7 +60,9 @@ class AzkarView extends StatelessWidget {
                             style: GoogleFonts.poppins(
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
-                              fontSize:MediaQuery.of(context).size.width < 365 ?18 : 22,
+                              fontSize: MediaQuery.of(context).size.width < 365
+                                  ? 18
+                                  : 22,
                             ),
                             textAlign: TextAlign.right,
                           ),
@@ -115,11 +117,11 @@ class AzkarView extends StatelessWidget {
         title,
         style: GoogleFonts.amiri(
           color: primary,
-          fontSize: MediaQuery.of(context).size.width < 365 ?20 : 22,
+          fontSize: MediaQuery.of(context).size.width < 365 ? 20 : 22,
           fontWeight: FontWeight.bold,
         ),
         textAlign: TextAlign.center,
-                    textDirection: TextDirection.rtl,
+        textDirection: TextDirection.rtl,
       ),
     );
   }

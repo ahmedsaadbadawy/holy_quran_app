@@ -23,7 +23,7 @@ class TipItem extends StatelessWidget {
               title,
               style: GoogleFonts.amiri(
                 color: primary,
-                fontSize: 24,
+                fontSize: MediaQuery.of(context).size.width < 365 ? 21 : 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -36,7 +36,7 @@ class TipItem extends StatelessWidget {
                   item,
                   style: GoogleFonts.poppins(
                     color: Theme.of(context).primaryColor,
-                    fontSize: 22,
+                    fontSize: 17,
                   ),
                   textAlign: TextAlign.right,
                 ),

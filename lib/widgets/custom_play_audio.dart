@@ -67,7 +67,6 @@ class _CustomPlayAudioState extends State<CustomPlayAudio> {
                   width: 2,
                 ),
                 customSlider(),
-                
                 InkWell(
                   onTap: () {
                     BlocProvider.of<AudioCubit>(context)
@@ -77,13 +76,6 @@ class _CustomPlayAudioState extends State<CustomPlayAudio> {
                     BlocProvider.of<AudioCubit>(context).playing == false
                         ? Icons.play_arrow_outlined
                         : Icons.pause_circle_outlined,
-                    color:Theme.of(context).highlightColor,
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Icon(
-                    Icons.bookmark_outline,
                     color: Theme.of(context).highlightColor,
                   ),
                 ),

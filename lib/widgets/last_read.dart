@@ -36,7 +36,7 @@ class _LastReadState extends State<LastRead> {
           ),
         ),
         Positioned(
-          bottom: -60,
+          bottom: MediaQuery.of(context).size.width < 365 ? -50 : -60,
           right: -50,
           child: Image.asset(
             'assets/svgs/muslim.png',

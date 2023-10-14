@@ -51,17 +51,17 @@ class _PraiseCustomContainerState extends State<PraiseCustomContainer> {
                           MediaQuery.of(context).size.width < 365 ? 18 : 24,
                       fontWeight: FontWeight.bold,
                     ),
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 16),
                   Text(
                     widget.subTitle,
                     style: GoogleFonts.amiri(
                       color: Colors.black,
-                      fontSize: 18,
+                      fontSize: 10,
                       fontWeight: FontWeight.bold,
                     ),
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 12),
                   Text(

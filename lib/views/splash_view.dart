@@ -16,18 +16,19 @@ class SplashView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 'Quran App',
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Theme.of(context).highlightColor,
                 ),
               ),
               const SizedBox(height: 16),
               Text(
                 'Learn Quran and\nRecite onve everyday',
-                style: GoogleFonts.poppins(fontSize: 18, color: Theme.of(context).hintColor),
+                style: GoogleFonts.poppins(
+                    fontSize: 18, color: Theme.of(context).hintColor),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 30),

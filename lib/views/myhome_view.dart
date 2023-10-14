@@ -30,10 +30,10 @@ class MyHomeView extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontSize: MediaQuery.of(context).size.width < 365 ? 16 : 20,
               fontWeight: FontWeight.bold,
-              color:Theme.of(context).highlightColor,
+              color: Theme.of(context).highlightColor,
             ),
           ),
-          if (MediaQuery.of(context).size.width > 365) const Spacer(),
+          const Spacer(),
           DropdownMenu<String>(
             width: 80,
             menuStyle: const MenuStyle(
@@ -50,7 +50,9 @@ class MyHomeView extends StatelessWidget {
             ),
             trailingIcon: Icon(
               Icons.menu,
-              color: tm == ThemeMode.dark ? Colors.white : const Color.fromARGB(255, 130, 128, 128),
+              color: tm == ThemeMode.dark
+                  ? Colors.white
+                  : const Color.fromARGB(255, 130, 128, 128),
             ),
             dropdownMenuEntries: const [
               DropdownMenuEntry(value: 'LightMode', label: 'LightMode'),
@@ -105,7 +107,7 @@ class MyHomeView extends StatelessWidget {
     return TabBar(
       indicatorColor: primary,
       unselectedLabelColor: Theme.of(context).hintColor,
-      labelColor: tm == ThemeMode.dark ? Colors.white : primary,
+      labelColor: Theme.of(context).highlightColor,
       indicatorWeight: 3,
       tabs: [
         Tab(

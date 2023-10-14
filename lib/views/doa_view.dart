@@ -12,7 +12,7 @@ class DoaView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).backgroundColor,
         automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(
@@ -25,7 +25,7 @@ class DoaView extends StatelessWidget {
               style: GoogleFonts.poppins(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: tm == ThemeMode.dark ? Colors.white : primary,
+                color: Theme.of(context).highlightColor,
               ),
             ),
           ],
@@ -52,7 +52,9 @@ class DoaView extends StatelessWidget {
                   Text(
                     "بِسْمِ اللهِ الرَّحْمنِ الرَّحِيم",
                     style: GoogleFonts.amiri(
-                      color: tm == ThemeMode.dark ? const Color(0xFF121931) : primary,
+                      color: tm == ThemeMode.dark
+                          ? const Color(0xFF121931)
+                          : primary,
                       fontSize:
                           MediaQuery.of(context).size.width < 365 ? 18 : 24,
                       fontWeight: FontWeight.bold,
@@ -65,7 +67,8 @@ class DoaView extends StatelessWidget {
                     doa[index],
                     style: GoogleFonts.amiri(
                       color: Colors.black,
-                      fontSize: MediaQuery.of(context).size.width < 365 ?18 : 22,
+                      fontSize:
+                          MediaQuery.of(context).size.width < 365 ? 16 : 22,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,

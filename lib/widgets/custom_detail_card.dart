@@ -18,7 +18,7 @@ class CustomDetailCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Stack(children: [
         Container(
-          height: MediaQuery.of(context).size.width < 365 ? 300 : 247,
+          height: MediaQuery.of(context).size.width < 365 ? 280 : 247,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             gradient: LinearGradient(
@@ -30,7 +30,7 @@ class CustomDetailCard extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: 10,
+          bottom: MediaQuery.of(context).size.width < 365 ? -22 : 10,
           right: -60,
           child: Opacity(
             opacity: .2,

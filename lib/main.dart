@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ChangeThemeCubit(),
+      create: (context) => ChangeThemeCubit()..changeTheme(ThemeState.initial),
       child: BlocBuilder<ChangeThemeCubit, ChangeThemeState>(
         builder: (context, state) {
           if (state is ChangeThemeLight) {
