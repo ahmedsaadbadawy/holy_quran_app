@@ -5,24 +5,21 @@ import '../cubits/change_theme_cubit/change_theme_cubit.dart';
 import '/constants.dart';
 import '/services/ayat_service.dart';
 
-import '../models/surah_model.dart';
 import '../widgets/ayat_item.dart';
 import '../widgets/custom_detail_card.dart';
 
-class AyatDetailView extends StatefulWidget {
+class AyatDetailView extends StatelessWidget {
   const AyatDetailView({
     super.key,
-    required this.surah,
+    required this.surahNum,
+    required this.listofSurah,
   });
-  final SurahModel surah;
+  final int surahNum;
+  final dynamic listofSurah;
 
-  @override
-  State<AyatDetailView> createState() => _AyatDetailViewState();
-}
-
-class _AyatDetailViewState extends State<AyatDetailView> {
   @override
   Widget build(BuildContext context) {
+    int currentAya = 1;
     return Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
@@ -33,6 +30,8 @@ class _AyatDetailViewState extends State<AyatDetailView> {
           title: Row(children: [
             IconButton(
               onPressed: (() {
+                prefs.write(kPrefSurahName, listofSurah[surahNum].enName);
+                prefs.write(kPrefAyaNumber, currentAya);
                 Navigator.of(context).pop();
               }),
               icon: Icon(Icons.arrow_back,
@@ -46,7 +45,7 @@ class _AyatDetailViewState extends State<AyatDetailView> {
                 width: 24,
               ),
             Text(
-              widget.surah.enName!,
+              listofSurah[surahNum].enName!,
               style: GoogleFonts.poppins(
                 fontSize: MediaQuery.of(context).size.width < 365 ? 14 : 20,
                 fontWeight: FontWeight.bold,
@@ -102,7 +101,7 @@ class _AyatDetailViewState extends State<AyatDetailView> {
                             keyboardType: TextInputType.number,
                             onSubmitted: (value) async {
                               await prefs.write(
-                                  kPrefSurahName, widget.surah.enName);
+                                  kPrefSurahName, listofSurah[surahNum].enName);
                               await prefs.write(kPrefAyaNumber, value);
                             },
                           ),
@@ -125,18 +124,19 @@ class _AyatDetailViewState extends State<AyatDetailView> {
         body: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
             SliverToBoxAdapter(
-              child: CustomDetailCard(surah: widget.surah),
+              child: CustomDetailCard(surah: listofSurah[surahNum]),
             ),
           ],
           body: FutureBuilder(
-              future:
-                  AyatService().getAllAyat(surahNumber: widget.surah.number!),
+              future: AyatService()
+                  .getAllAyat(surahNumber: listofSurah[surahNum].number!),
               builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                 if (!snapshot.hasData) {
                   return Container();
                 } else {
                   return ListView.builder(
                     itemBuilder: (BuildContext context, int index) {
+                      currentAya = index;
                       return AyatItem(ayat: snapshot.data[index]);
                     },
                     itemCount: snapshot.data.length,

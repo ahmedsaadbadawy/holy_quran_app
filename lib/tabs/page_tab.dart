@@ -18,7 +18,7 @@ class PageTab extends StatelessWidget {
         } else {
           return ListView.separated(
             itemBuilder: (BuildContext context, int index) {
-              return CustomSurahListTile(surahModel: snapshot.data[index],tapName: kPageTabName);
+              return CustomSurahListTile(surahModel: snapshot.data[index],tapName: kPageTabName,listofSurah: snapshot.data,);
             },
             itemCount: snapshot.data.length,
             separatorBuilder: (BuildContext context, int index) {

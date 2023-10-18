@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/constants.dart';
 import 'package:quran_app/cubits/change_theme_cubit/change_theme_cubit.dart';
-import '../tabs/quran_tab.dart';
 import '../tabs/page_tab.dart';
 import '../tabs/ayat_tab.dart';
 import '../widgets/greetings.dart';
@@ -71,7 +70,7 @@ class MyHomeView extends StatelessWidget {
         ]),
       ),
       body: DefaultTabController(
-        length: 3,
+        length: 2,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: NestedScrollView(
@@ -95,7 +94,7 @@ class MyHomeView extends StatelessWidget {
               )
             ],
             body: const TabBarView(
-              children: [AyathTab(), PageTab(), QuranTab()],
+              children: [PageTab(), AyatTab()],
             ),
           ),
         ),
@@ -112,15 +111,6 @@ class MyHomeView extends StatelessWidget {
       tabs: [
         Tab(
           child: Text(
-            'Ayat',
-            style: GoogleFonts.poppins(
-              fontSize: MediaQuery.of(context).size.width < 365 ? 12 : 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-        Tab(
-          child: Text(
             'Page',
             style: GoogleFonts.poppins(
               fontSize: MediaQuery.of(context).size.width < 365 ? 12 : 16,
@@ -130,7 +120,7 @@ class MyHomeView extends StatelessWidget {
         ),
         Tab(
           child: Text(
-            'Quran',
+            'Ayat',
             style: GoogleFonts.poppins(
               fontSize: MediaQuery.of(context).size.width < 365 ? 12 : 16,
               fontWeight: FontWeight.w600,

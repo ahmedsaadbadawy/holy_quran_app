@@ -1,4 +1,4 @@
-// ignore: 
+// ignore:
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quran_app/views/doa_view.dart';
@@ -20,10 +20,10 @@ class _BottomTabBarState extends State<BottomTabBar> {
   int _index = 0;
   final screens = const [
     MyHomeView(),
-    TipsView(),
-    AzkarView(),
     DoaView(),
+    AzkarView(),
     PraiseView(),
+    TipsView(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
         unselectedItemColor: tm == ThemeMode.dark ? Colors.grey : primary,
         elevation: 0,
         // ignore: deprecated_member_use
-        backgroundColor:Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).backgroundColor,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(
@@ -49,47 +49,35 @@ class _BottomTabBarState extends State<BottomTabBar> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.lightbulb_outline,
-              size: 32,
-            ),
-            activeIcon: Icon(
-              Icons.lightbulb,
-              size: 32,
-            ),
-            label: 'Tips',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              FontAwesomeIcons.personPraying,
-            ),
-            activeIcon: Icon(
-              FontAwesomeIcons.personPraying,
-            ),
-            label: 'Azkar',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              FontAwesomeIcons.handsPraying,
-            ),
-            activeIcon: Icon(
               FontAwesomeIcons.handsPraying,
             ),
             label: 'Doa',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.touch_app_outlined,
+              FontAwesomeIcons.personPraying,
+            ),
+            label: 'Azkar',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.touch_app,
               size: 32,
             ),
-            activeIcon: Icon(Icons.touch_app, size: 32),
             label: 'Praise',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.lightbulb,
+              size: 32,
+            ),
+            label: 'Tips',
           ),
         ],
         currentIndex: _index,
         onTap: (value) {
-          setState(() {
-            _index = value;
-          });
+          _index = value;
+          setState(() {});
         },
       ),
     );

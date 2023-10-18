@@ -5,16 +5,16 @@ import 'package:google_fonts/google_fonts.dart';
 import '../cubits/change_theme_cubit/change_theme_cubit.dart';
 import '../services/ayat_service.dart';
 import '/constants.dart';
-import '../models/surah_model.dart';
 import '../widgets/custom_detail_card.dart';
 
 class PageDetailView extends StatelessWidget {
   const PageDetailView({
     super.key,
-    required this.surah,
+    required this.surahNum,
+    required this.listofSurah,
   });
-  final SurahModel surah;
-
+  final int surahNum;
+  final dynamic listofSurah;
   @override
   Widget build(BuildContext context) {
     int number = 1;
@@ -27,9 +27,9 @@ class PageDetailView extends StatelessWidget {
         elevation: 0,
         title: Row(children: [
           IconButton(
-            onPressed: (() async {
-              await prefs.write(kPrefSurahName, surah.enName);
-              await prefs.write(kPrefAyaNumber, number);
+            onPressed: (() {
+              prefs.write(kPrefSurahName, listofSurah[surahNum].enName);
+              prefs.write(kPrefAyaNumber, number);
               Navigator.of(context).pop();
             }),
             icon: Icon(Icons.arrow_back,
@@ -43,7 +43,7 @@ class PageDetailView extends StatelessWidget {
               width: 24,
             ),
           Text(
-            surah.enName!,
+            listofSurah[surahNum].enName!,
             style: GoogleFonts.poppins(
               fontSize: MediaQuery.of(context).size.width < 365 ? 14 : 20,
               fontWeight: FontWeight.bold,
@@ -98,7 +98,8 @@ class PageDetailView extends StatelessWidget {
                           ),
                           keyboardType: TextInputType.number,
                           onSubmitted: (value) async {
-                            await prefs.write(kPrefSurahName, surah.enName);
+                            await prefs.write(
+                                kPrefSurahName, listofSurah[surahNum].enName);
                             await prefs.write(kPrefAyaNumber, value);
                           },
                         ),
@@ -121,69 +122,132 @@ class PageDetailView extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverToBoxAdapter(
-            child: CustomDetailCard(surah: surah),
+            child: CustomDetailCard(surah: listofSurah[surahNum]),
           ),
         ],
         body: FutureBuilder(
-          future: AyatService().getAllAyat(surahNumber: surah.number!),
+          future: AyatService()
+              .getAllAyat(surahNumber: listofSurah[surahNum].number!),
           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
             if (!snapshot.hasData) {
               return Container();
             } else {
-              return SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 15, right: 15, top: 20, bottom: 20),
-                  child: Column(
-                    children: [
-                      SelectableText.rich(
-                        textAlign: TextAlign.center,
-                        TextSpan(
+              return SafeArea(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: 15, right: 15, top: 20, bottom: 20),
+                    child: Column(
+                      children: [
+                        SelectableText.rich(
+                          textAlign: TextAlign.center,
+                          TextSpan(
+                            children: [
+                              ...snapshot.data.map(
+                                (verse) {
+                                  return TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: '${verse.quran}',
+                                        style: GoogleFonts.notoNaskhArabic(
+                                          color: Theme.of(context).primaryColor,
+                                          fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width <
+                                                  365
+                                              ? 18
+                                              : 26.5,
+                                          height: MediaQuery.of(context)
+                                                      .size
+                                                      .width <
+                                                  365
+                                              ? 2
+                                              : 2.5,
+                                        ),
+                                        recognizer: TapGestureRecognizer()
+                                          ..onTap = () {
+                                            number = verse.numberinSurah;
+                                          },
+                                      ),
+                                      TextSpan(
+                                        text: verse.numberinSurah ==
+                                                listofSurah[surahNum]
+                                                    .numberOfVerses
+                                            ? '\n\uFD3E${verse.numberinSurah}\uFD3F '
+                                            : ' \uFD3F${verse.numberinSurah}\uFD3E ',
+                                        style: GoogleFonts.notoNaskhArabic(
+                                          color: Theme.of(context).primaryColor,
+                                          fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width <
+                                                  365
+                                              ? 18
+                                              : 27,
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            ...snapshot.data.map(
-                              (verse) {
-                                return TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: '${verse.quran}',
-                                      style: GoogleFonts.notoNaskhArabic(
-                                        color: Theme.of(context).primaryColor,
-                                        fontSize:
-                                            MediaQuery.of(context).size.width <
-                                                    365
-                                                ? 18
-                                                : 26.5,
-                                        height:
-                                            MediaQuery.of(context).size.width <
-                                                    365
-                                                ? 2
-                                                : 2.5,
-                                      ),
-                                      recognizer: TapGestureRecognizer()
-                                        ..onTap = () {
-                                          number = verse.numberinSurah;
-                                        },
-                                    ),
-                                    TextSpan(
-                                      text:
-                                          ' \uFD3F${verse.numberinSurah}\uFD3E ',
-                                      style: GoogleFonts.notoNaskhArabic(
-                                        color: Theme.of(context).primaryColor,
-                                        fontSize:
-                                            MediaQuery.of(context).size.width <
-                                                    365
-                                                ? 18
-                                                : 27,
+                            if (listofSurah[surahNum].number != 1)
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  fixedSize: Size(
+                                    MediaQuery.of(context).size.width / 2 - 30,
+                                    35,
+                                  ),
+                                  elevation: 1.5,
+                                  foregroundColor: primary,
+                                  backgroundColor:
+                                      Theme.of(context).backgroundColor,
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                      builder: (context) => PageDetailView(
+                                        surahNum: surahNum - 1,
+                                        listofSurah: listofSurah,
                                       ),
                                     ),
-                                  ],
-                                );
-                              },
-                            ),
+                                  );
+                                },
+                                child: const Text('previeus'),
+                              ),
+                            const Spacer(),
+                            if (listofSurah[surahNum].number != 114)
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  fixedSize: Size(
+                                    MediaQuery.of(context).size.width / 2 - 30,
+                                    35,
+                                  ),
+                                  elevation: 1.5,
+                                  foregroundColor: primary,
+                                  backgroundColor:
+                                      Theme.of(context).backgroundColor,
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                      builder: (context) => PageDetailView(
+                                        listofSurah: listofSurah,
+                                        surahNum: surahNum + 1,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: const Text('Next'),
+                              ),
                           ],
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               );

@@ -38,7 +38,7 @@ class TipItem extends StatelessWidget {
                     color: Theme.of(context).primaryColor,
                     fontSize: 17,
                   ),
-                  textAlign: TextAlign.right,
+                  textAlign: TextAlign.center,
                 ),
                 Divider(color: const Color(0xFF7B80AD).withOpacity(.3)),
               ],

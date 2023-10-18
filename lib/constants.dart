@@ -16,7 +16,7 @@ String kPrefAyaNumber = 'ayaNumber';
 
 String kPageTabName = 'PageTap';
 
-int pageNum = 1;
+int currentAyaNum = 1;
 
 enum ThemeState { initial, light, dark }
 

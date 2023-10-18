@@ -11,9 +11,11 @@ class CustomSurahListTile extends StatelessWidget {
     super.key,
     required this.surahModel,
     required this.tapName,
+    required this.listofSurah,
   });
   final SurahModel surahModel;
   final String tapName;
+  final dynamic listofSurah;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -23,7 +25,8 @@ class CustomSurahListTile extends StatelessWidget {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => PageDetailView(
-                surah: surahModel,
+                surahNum: surahModel.number! - 1,
+                listofSurah: listofSurah,
               ),
             ),
           );
@@ -31,7 +34,8 @@ class CustomSurahListTile extends StatelessWidget {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => AyatDetailView(
-                surah: surahModel,
+                 surahNum: surahModel.number! - 1,
+                listofSurah: listofSurah,
               ),
             ),
           );
@@ -84,7 +88,8 @@ class CustomSurahListTile extends StatelessWidget {
                 width: 4,
                 height: 4,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(2), color: Theme.of(context).hintColor),
+                    borderRadius: BorderRadius.circular(2),
+                    color: Theme.of(context).hintColor),
               ),
               const SizedBox(
                 width: 4,

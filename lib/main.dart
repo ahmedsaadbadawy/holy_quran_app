@@ -41,29 +41,17 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             themeMode: tm,
             theme: ThemeData(
-              //gray
-              // ignore: deprecated_member_use
               backgroundColor: const Color(0xFFFAF8FC),
-              //Background
               scaffoldBackgroundColor: const Color(0xFFFAF8FC),
-              //font
               primaryColor: Colors.black,
-              //text
               hintColor: const Color.fromARGB(255, 130, 128, 128),
-              //header
               highlightColor: const Color(0xFF6918b4),
             ),
             darkTheme: ThemeData(
-              //gray
-              // ignore: deprecated_member_use
               backgroundColor: const Color(0xFF121931),
-              //Background
               scaffoldBackgroundColor: const Color(0xFF040C23),
-              //font
               primaryColor: Colors.white,
-              //text
               hintColor: const Color(0xFFb691ff),
-              //header
               highlightColor: Colors.white,
             ),
             debugShowCheckedModeBanner: false,
