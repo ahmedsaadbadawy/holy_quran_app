@@ -31,55 +31,58 @@ class DoaView extends StatelessWidget {
           ],
         ),
       ),
-      body: ListView.builder(itemBuilder: (context, index) {
-        return Padding(
-          padding:
-              const EdgeInsets.only(top: 20, bottom: 20, left: 10, right: 10),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                stops: const [0, .6, 1],
-                colors: linearGradiant,
+      body: ListView.builder(
+        itemCount: doa.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding:
+                const EdgeInsets.only(top: 20, bottom: 20, left: 10, right: 10),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  stops: const [0, .6, 1],
+                  colors: linearGradiant,
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    Text(
+                      "بِسْمِ اللهِ الرَّحْمنِ الرَّحِيم",
+                      style: GoogleFonts.amiri(
+                        color: tm == ThemeMode.dark
+                            ? const Color(0xFF121931)
+                            : primary,
+                        fontSize:
+                            MediaQuery.of(context).size.width < 365 ? 18 : 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                      textDirection: TextDirection.rtl,
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      doa[index],
+                      style: GoogleFonts.amiri(
+                        color: Colors.black,
+                        fontSize:
+                            MediaQuery.of(context).size.width < 365 ? 16 : 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                      textDirection: TextDirection.rtl,
+                    ),
+                  ],
+                ),
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Text(
-                    "بِسْمِ اللهِ الرَّحْمنِ الرَّحِيم",
-                    style: GoogleFonts.amiri(
-                      color: tm == ThemeMode.dark
-                          ? const Color(0xFF121931)
-                          : primary,
-                      fontSize:
-                          MediaQuery.of(context).size.width < 365 ? 18 : 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                    textDirection: TextDirection.rtl,
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    doa[index],
-                    style: GoogleFonts.amiri(
-                      color: Colors.black,
-                      fontSize:
-                          MediaQuery.of(context).size.width < 365 ? 16 : 22,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                    textDirection: TextDirection.rtl,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
-      }),
+          );
+        },
+      ),
     );
   }
 }

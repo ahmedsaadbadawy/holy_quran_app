@@ -18,7 +18,6 @@ class Greetings extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 4),
-
           Text(
             'Assalamualaikum',
             style: GoogleFonts.poppins(

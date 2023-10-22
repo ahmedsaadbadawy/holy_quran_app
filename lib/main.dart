@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:quran_app/cubits/change_theme_cubit/change_theme_cubit.dart';
 import 'constants.dart';
+import 'cubits/last_read_cubit/last_read_cubit.dart';
 import 'views/splash_view.dart';
 
 void main() async {
@@ -18,8 +19,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ChangeThemeCubit()..changeTheme(ThemeState.initial),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              ChangeThemeCubit()..changeTheme(ThemeState.initial),
+        ),
+        BlocProvider(
+          create: (context) => LastReadCubit(),
+        ),
+      ],
       child: BlocBuilder<ChangeThemeCubit, ChangeThemeState>(
         builder: (context, state) {
           if (state is ChangeThemeLight) {
