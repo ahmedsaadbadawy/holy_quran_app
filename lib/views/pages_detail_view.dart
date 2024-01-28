@@ -2,10 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../cubits/change_theme_cubit/change_theme_cubit.dart';
+import 'package:quran_app/widgets/custom_snack_bar.dart';
 import '../cubits/last_read_cubit/last_read_cubit.dart';
 import '../services/ayat_service.dart';
-import '/constants.dart';
+import '../widgets/detail_view_dropdown_menu.dart';
+import '../widgets/previous_and_next_surah_navigation.dart';
 import '../widgets/custom_detail_card.dart';
 
 class PageDetailView extends StatelessWidget {
@@ -45,73 +46,8 @@ class PageDetailView extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            DropdownMenu<String>(
-              width: 80,
-              // ignore: deprecated_member_use
-              textStyle: TextStyle(color: Theme.of(context).backgroundColor),
-              inputDecorationTheme:
-                  const InputDecorationTheme(outlineBorder: BorderSide.none),
-              trailingIcon: Icon(
-                Icons.menu,
-                color: tm == ThemeMode.dark
-                    ? Colors.white
-                    : const Color.fromARGB(255, 130, 128, 128),
-              ),
-              dropdownMenuEntries: const [
-                DropdownMenuEntry(value: 'Book Mark', label: 'Book Mark'),
-                DropdownMenuEntry(value: 'LightMode', label: 'LightMode'),
-                DropdownMenuEntry(value: 'DarkMode', label: 'DarkMode'),
-              ],
-              onSelected: (value) {
-                if (value == 'Book Mark') {
-                  final AlertDialog alert = AlertDialog(
-                    title: Text(
-                      'Book Mark',
-                      style: GoogleFonts.poppins(
-                          color: primary,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                    content: SizedBox(
-                      height: 150,
-                      width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        children: [
-                          const Divider(color: Colors.black),
-                          const SizedBox(height: 20),
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Enter Number Of Aya',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: const BorderSide(
-                                  color: Colors.blue,
-                                ),
-                              ),
-                            ),
-                            keyboardType: TextInputType.number,
-                            onSubmitted: (value) async {
-                              BlocProvider.of<LastReadCubit>(context)
-                                  .changeLastRead(
-                                      ayaNum: int.parse(value),
-                                      surahName: listofSurah[surahNum].enName);
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                  showDialog(context: context, builder: (context) => alert);
-                } else if (value == 'LightMode') {
-                  BlocProvider.of<ChangeThemeCubit>(context)
-                      .changeTheme(ThemeState.light);
-                } else if (value == 'DarkMode') {
-                  BlocProvider.of<ChangeThemeCubit>(context)
-                      .changeTheme(ThemeState.dark);
-                }
-              },
-            ),
+            DetailViewDropdownMenu(
+                listofSurah: listofSurah, surahNum: surahNum),
           ]),
         ),
         body: NestedScrollView(
@@ -151,7 +87,7 @@ class PageDetailView extends StatelessWidget {
                                                         .size
                                                         .width <
                                                     365
-                                                ? 18
+                                                ? 21
                                                 : 26.5,
                                             height: MediaQuery.of(context)
                                                         .size
@@ -163,6 +99,8 @@ class PageDetailView extends StatelessWidget {
                                           recognizer: TapGestureRecognizer()
                                             ..onTap = () {
                                               number = verse.numberinSurah;
+                                              customSnackBar(context,
+                                                  'Ayah $number BookMarked');
                                             },
                                         ),
                                         TextSpan(
@@ -189,62 +127,8 @@ class PageDetailView extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              if (listofSurah[surahNum].number != 1)
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    fixedSize: Size(
-                                      MediaQuery.of(context).size.width / 2 -
-                                          30,
-                                      35,
-                                    ),
-                                    elevation: 1.5,
-                                    foregroundColor: primary,
-                                    backgroundColor:
-                                        Theme.of(context).backgroundColor,
-                                  ),
-                                  onPressed: () {
-                                    Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                        builder: (context) => PageDetailView(
-                                          surahNum: surahNum - 1,
-                                          listofSurah: listofSurah,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  child: const Text('previeus'),
-                                ),
-                              const Spacer(),
-                              if (listofSurah[surahNum].number != 114)
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    fixedSize: Size(
-                                      MediaQuery.of(context).size.width / 2 -
-                                          30,
-                                      35,
-                                    ),
-                                    elevation: 1.5,
-                                    foregroundColor: primary,
-                                    backgroundColor:
-                                        Theme.of(context).backgroundColor,
-                                  ),
-                                  onPressed: () {
-                                    Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                        builder: (context) => PageDetailView(
-                                          listofSurah: listofSurah,
-                                          surahNum: surahNum + 1,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  child: const Text('Next'),
-                                ),
-                            ],
-                          ),
+                          PreviousAndNextSurahNavigation(
+                              listofSurah: listofSurah, surahNum: surahNum),
                         ],
                       ),
                     ),
